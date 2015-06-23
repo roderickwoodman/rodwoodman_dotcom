@@ -1,0 +1,92 @@
+h4 {
+	text-align: center;
+}
+div.navbar-header a.navbar-brand {
+  font-weight: bold;
+  color: #4cf;
+}
+.navbar .dropdown-menu {
+  margin-top: 0px;
+}
+ul.nav li.dropdown:hover > ul.dropdown-menu {
+  display: block;    
+}
+.col-sm-4 img {
+  display: block;
+  margin: auto;
+  max-width: 100%;
+  /*border: 1px solid black;*/
+}
+.col-sm-4 h3 {
+  text-align: center;
+}
+.thumb-webdesktop {
+  width: 75px;
+  border: 1px solid black;
+  margin: 2px;
+}
+.thumb-webmobile {
+  width: 25px;
+  border: 1px solid black;
+  margin: 2px;
+}
+.thumb-port {
+  width: 200px;
+}
+.thumb-land {
+  width: 350px;
+}
+.collage {
+  border: 1px solid #000;
+  width: 100%;
+}
+/*.thumb-webproj {
+  width: 75px;
+  border: 1px solid black;
+  margin: 2px;
+}*/
+#tool {
+  font-weight:bold;
+  font-style:italic;
+}
+#color-dinsmore {
+  background-color:#e8d599;
+}
+#color-sedtalks {
+  background-color:#9A65B7;
+}
+#color-lakeside {
+  background-color:#99A5E8;
+}
+.row #color-dinsmore, .row #color-lakeside, .row #color-sedtalks {
+  color: black;
+  /*
+  margin: 5px;
+  */
+  border-radius: 15px;
+}
+
+/*
+.row #color-lakeside {
+  color: black;
+  margin: 5px;
+  border-radius: 15px;
+}
+*/
+a[href$='.pdf'] {
+  background:transparent url(img/icon-pdf-16x16.png) center left no-repeat;
+  padding-left:18px;
+}
+a[href$='.docx'] {
+  background:transparent url(img/icon-docx-16x16.png) center left no-repeat;
+  padding-left:18px;
+}
+#file-list {
+  list-style-type: none;
+}
+#headshot-container {
+  padding-top: 20px;
+}
+
+
+

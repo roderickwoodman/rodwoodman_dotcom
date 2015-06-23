@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Rod Woodman SED Talks, Roderick Woodman SED Talks">
+    <meta name="description" content="Rod Woodman is a Silicon Valley software developer. This is an overview of his SED Talks redesign.">
+    <meta name="author" content="Rod Woodman">
+		<link rel="shortcut icon" href="img/favicon.ico">
+
+    <title>rodwoodman.com | My Portfolio | SED Talks</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="dist/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles -->
+    <link href="index.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="assets/js/html5shiv.js"></script>
+      <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-57305536-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">rodwoodman.com</a>
+        </div><!--/.navbar-header -->
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">            
+            <li class="dropdown">
+              <a href="portfolio.html">Portfolio <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="portfolio-dinsmore.html">Dinsmore Landscape Company</a></li>
+                <li><a href="portfolio-sedtalks.html">SED Talks</a></li>     
+                <li><a href="portfolio-lakeside.html">Lakeside Pottery</a></li>
+              </ul>
+            </li>            
+            <li><a href="photography.html">Photography</a></li>
+          </ul>
+        </div><!--/.navbar-collapse -->
+      </div><!--/.container-->
+    </div><!--/.navbar-->
+
+    <div class="jumbotron" id="color-sedtalks">
+      <div class="container">
+        <h1>SED Talks</h1>
+        <p>On this project, an archive site for tech talk presentations, I was tasked with improving an internal website so that it would work with different screen sizes. I also maintained the back-end database for when the web form submission didn't work as expected.</p>
+		<p>And below are my design improvements...</p>
+      </div><!--/.container-->
+    </div><!--/.jumbotron-->
+
+    <div class="container">
+			<div class="row">
+				<div class="col-sm-4">
+				    <img src="img/sed/sed-step1.png">
+				    <ul id="file-list">
+				      <li><a href="docs/sed/sed-orig-ss-desk.png">original site desktop screenshot</a>
+				      <li><a href="docs/sed/sed-orig-ss-mob.png">original site mobile screenshot</a>			  					  	
+				    </ul>
+                </div>
+				<div class="col-sm-8">
+					<h2>"Before"</h2>  	
+					<p>The original design for this website was thrown together by two interns as 
+						their side project. Due to time constraints the website was only useable
+						at full-size desktop browswer sizes.
+					<ul>
+						<li>back-end connectivity
+						<li>the front end supported full-size desktop browser size only
+					</ul>
+					</p>
+				</div>
+			</div><!--/.row-->
+			<hr>
+			<div class="row">
+				<div class="col-sm-4">
+				<img src="img/sed/sed-step2.png">
+				<ul id="file-list">
+				  <li><a href="docs/sed/sed-new-ss-desk.png">new site desktop screenshot</a>
+				  <li><a href="docs/sed/sed-new-ss-mob.png">new site mobile screenshot</a>
+				  <li><a href="docs/sed/sed-new-ss-webex.png">example presentation screenshot</a>				  					  	
+				</ul>
+				</div>
+				<div class="col-sm-8">
+					<h2>"After"</h2>
+					<p>I restructured the code, adding HTML div tags, CSS table-cell styling, and CSS
+						percentage widths so that the images would align together into the client's desired
+						8-image grid regardless of browser size. I reconnected the jQuery mouseover behavors to 
+						match the new HTML structure. I also created a mobile design and implemented it
+						with a parallel set of CSS rules keyed by CSS media queries into viewport width.
+						This allowed the image and the text to both continue to be useful even on the 
+						smaller screen real estate.
+					<ul>
+						<li>image rows break in an organized way
+						<li>images scaled proportionally to screen size
+						<li>mobile styling for readability
+					</ul>
+					</p>
+				</div>
+			</div><!--/.row-->
+			<hr>
+      <footer>
+        <p>&copy; Rod Woodman 2015</p>
+      </footer>
+    </div><!--/.container-->
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="assets/js/jquery.js"></script>
+    <script src="dist/js/bootstrap.min.js"></script>
+    
+  </body>
+  
+</html>
