@@ -8,8 +8,8 @@
 		$(document).ready(function(){
 
 			var includedTags = [];
-			// includeAllTags();
-			displayProjectsMatchingAllIncludedTags();
+			includeAllTags();
+			displayProjectsMatchingTheIncludedTags();
 
 			function includeTag(tagArray) {
 				for (var i=0; i<tagArray.length; i++) {
@@ -85,39 +85,68 @@
 				console.log(includedTags);		
 			}
 
-			function displayProjectsMatchingAllIncludedTags() {
-				var allIncludedClasses = ".project";
+			function displayProjectsMatchingTheIncludedTags() {
+
+				var match_operator = $('form input[type=radio]:checked').val();
+				var allIncludedClasses = "";
 				for (var key in includedTags) {
 					if (includedTags[key] == true) {
-						allIncludedClasses += "." + key;
+						if (match_operator == 'and') {
+							allIncludedClasses += "." + key;
+						}
+						else if (match_operator == 'or') {
+							if (allIncludedClasses != "") {
+								allIncludedClasses += ", ";
+							}
+							allIncludedClasses += "." + key;	
+						}
 					}
 				}
 				// console.log("searching for: "+allIncludedClasses);
+				$('.matches_listing').text("");
+
 				$('.project').each(function() {
 					$(this).hide();
 				});
-				$('#matches').text("");
-				$(allIncludedClasses).each(function() {
-					// console.log('MATCH: '+$(this).text());
-					$(this).show();
-					var newText = $(this).children('div').children('h2').text();
-					// var newText = $(this).text().split('(')[0];
-					$('#matches').append("<li>"+newText+"</li>");
-				});
+				if (match_operator == 'and') {
+					$(allIncludedClasses).each(function() {
+						$(this).show();
+						var newText = $(this).children('div').children('h2').text();
+						$('#sidebar .matches_listing').append("<li>"+newText+"</li>");
+					});
+				}
+				else if (match_operator == 'or') {
+					$('.project').each(function() {
+						if ($(this).is(allIncludedClasses)) {
+							$(this).show();
+							var newText = $(this).children('div').children('h2').text();
+							$('#sidebar .matches_listing').append("<li>"+newText+"</li>");
+						}
+					});
+				}
+
+				if ($('#sidebar .matches_listing').text() == "") {
+					$('.matches_listing').append("<li>(no matches found)</li>");
+				}
+
 			}
 
 			$('.selectAll').click(function(){
 				$('.persistent').addClass('include');
 				$('.persistent').removeClass('exclude');
 				includeAllTags();
-				displayProjectsMatchingAllIncludedTags();
+				displayProjectsMatchingTheIncludedTags();
 			});
 
 			$('.selectNone').click(function(){
 				$('.persistent').addClass('exclude');
 				$('.persistent').removeClass('include');
 				excludeAllTags();
-				displayProjectsMatchingAllIncludedTags();
+				displayProjectsMatchingTheIncludedTags();
+			});
+
+			$('#tag_match_radio').click(function(){
+				displayProjectsMatchingTheIncludedTags();
 			});
 
 			$('.persistent').click(function(){
@@ -132,7 +161,7 @@
 					$(this).removeClass('include');
 					excludeTag(thisElementsClasses);
 				}
-				displayProjectsMatchingAllIncludedTags();
+				displayProjectsMatchingTheIncludedTags();
 			});
 
 			$('.expandAll').click(function(){
@@ -160,7 +189,6 @@
 			padding: 0;
 		}
 		html {
-			/*background-color: lightgray;*/
           	background-color: #FAFAD2;
 			font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 		}
@@ -236,33 +264,39 @@
 <body>
 	<div id="sidebar">
 		<h3>portfolio tags (<a class="tag selectAll" href="#">all</a>|<a class="tag selectNone" href="#">none</a>) :</h3>
+		<form id="tag_match_radio">
+			<input type="radio" name="tag_match_operator" value="or" checked>OR
+			<input type="radio" name="tag_match_operator" value="and">AND
+		</form>
 		<ul id="filter">
 			<li>
-				<a class="tag persistent exclude mvc" href="#">MVC</a>
-				<a class="tag persistent exclude angular" href="#">Angular</a>
-				<a class="tag persistent exclude php" href="#">PHP</a>
-				<a class="tag persistent exclude swift" href="#">Swift</a>		
-				<a class="tag persistent exclude node" href="#">Node</a>
-				<a class="tag persistent exclude ecommerce" href="#">ecommerce</a>
-				<a class="tag persistent exclude d3" href="#">D3</a>
-				<a class="tag persistent exclude data" href="#">data</a>
-				<a class="tag persistent exclude deployed" href="#">deployed</a>
-				<a class="tag persistent exclude game" href="#">game</a>
-				<a class="tag persistent exclude javascript" href="#">JavaScript</a>
-				<a class="tag persistent exclude responsive" href="#">responsive</a>
-				<a class="tag persistent exclude bootstrap" href="#">Bootstrap</a>
-				<a class="tag persistent exclude frontend" href="#">front-end</a>
-				<a class="tag persistent exclude backend" href="#">back-end</a>
-				<a class="tag persistent exclude api" href="#">API</a>
+				<a class="tag persistent include mvc" href="#">MVC</a>
+				<a class="tag persistent include angular" href="#">Angular</a>
+				<a class="tag persistent include php" href="#">PHP</a>
+				<a class="tag persistent include swift" href="#">Swift</a>		
+				<a class="tag persistent include node" href="#">Node</a>
+				<a class="tag persistent include ecommerce" href="#">ecommerce</a>
+				<a class="tag persistent include d3" href="#">D3</a>
+				<a class="tag persistent include data" href="#">data</a>
+				<a class="tag persistent include deployed" href="#">deployed</a>
+				<a class="tag persistent include game" href="#">game</a>
+				<a class="tag persistent include javascript" href="#">JavaScript</a>
+				<a class="tag persistent include responsive" href="#">responsive</a>
+				<a class="tag persistent include bootstrap" href="#">Bootstrap</a>
+				<a class="tag persistent include frontend" href="#">front-end</a>
+				<a class="tag persistent include backend" href="#">back-end</a>
+				<a class="tag persistent include api" href="#">API</a>
 			</li>
 		</ul>
 		<h3>matching projects:</h3>
-		<ul id="matches">
+		<ul class="matches_listing">
 		</ul>
 	</div> <!-- closes sidebar -->
 	<div id="content">
 		<a name="portfolio"></a>
-		<h3>portfolio projects (<a class="collapseAll" href="#">collapseAll</a> | <a class="expandAll" href="#">expandAll</a>)</h3>
+		<h3>matching projects (<a class="collapseAll" href="#">collapseAll</a> | <a class="expandAll" href="#">expandAll</a>)</h3>
+		<ul class="matches_listing">
+		</ul>
 		<ul>
 			<li class="project swift game responsive frontend api">
 				<img src="ss_frappybird.png">
