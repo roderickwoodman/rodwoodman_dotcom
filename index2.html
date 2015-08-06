@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Portfolio</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+
+			var includedTags = [];
+			// includeAllTags();
+			displayProjectsMatchingAllIncludedTags();
+
+			function includeTag(tagArray) {
+				for (var i=0; i<tagArray.length; i++) {
+					// console.log(tagArray[i]);
+					switch (tagArray[i]) {
+						case 'tag':
+						case 'persistent':
+						case 'include':
+						case 'exclude':
+							break;
+						default:
+							includedTags[tagArray[i]] = true;
+							break;
+					}
+				}
+			}
+
+			function includeAllTags() {
+				includedTags["angular"] = true;
+				includedTags["api"] = true;
+				includedTags["backend"] = true;
+				includedTags["bootstrap"] = true;
+				includedTags["d3"] = true;
+				includedTags["data"] = true;
+				includedTags["deployed"] = true;
+				includedTags["ecommerce"] = true;
+				includedTags["frontend"] = true;
+				includedTags["game"] = true;
+				includedTags["javascript"] = true;
+				includedTags["mvc"] = true;
+				includedTags["node"] = true;
+				includedTags["php"] = true;
+				includedTags["responsive"] = true;	
+				includedTags["swift"] = true;	
+			}
+
+			function excludeTag(tagArray) {
+				for (var i=0; i<tagArray.length; i++) {
+					// console.log(tagArray[i]);
+					switch (tagArray[i]) {
+						case 'tag':
+						case 'persistent':
+						case 'include':
+						case 'exclude':
+							break;
+						default:
+							includedTags[tagArray[i]] = false;
+							break;
+					}
+				}
+			}
+
+			function excludeAllTags() {
+				includedTags["angular"] = false;
+				includedTags["api"] = false;
+				includedTags["backend"] = false;
+				includedTags["bootstrap"] = false;
+				includedTags["d3"] = false;
+				includedTags["data"] = false;
+				includedTags["deployed"] = false;
+				includedTags["ecommerce"] = false;
+				includedTags["frontend"] = false;
+				includedTags["game"] = false;
+				includedTags["javascript"] = false;
+				includedTags["mvc"] = false;
+				includedTags["node"] = false;
+				includedTags["php"] = false;	
+				includedTags["responsive"] = false;	
+				includedTags["swift"] = false;	
+			}
+
+			function printIncludedTagsArray() {
+				console.log(includedTags);		
+			}
+
+			function displayProjectsMatchingAllIncludedTags() {
+				var allIncludedClasses = ".project";
+				for (var key in includedTags) {
+					if (includedTags[key] == true) {
+						allIncludedClasses += "." + key;
+					}
+				}
+				// console.log("searching for: "+allIncludedClasses);
+				$('.project').each(function() {
+					$(this).hide();
+				});
+				$('#matches').text("");
+				$(allIncludedClasses).each(function() {
+					// console.log('MATCH: '+$(this).text());
+					$(this).show();
+					var newText = $(this).children('div').children('h2').text();
+					// var newText = $(this).text().split('(')[0];
+					$('#matches').append("<li>"+newText+"</li>");
+				});
+			}
+
+			$('.selectAll').click(function(){
+				$('.persistent').addClass('include');
+				$('.persistent').removeClass('exclude');
+				includeAllTags();
+				displayProjectsMatchingAllIncludedTags();
+			});
+
+			$('.selectNone').click(function(){
+				$('.persistent').addClass('exclude');
+				$('.persistent').removeClass('include');
+				excludeAllTags();
+				displayProjectsMatchingAllIncludedTags();
+			});
+
+			$('.persistent').click(function(){
+				var thisElementsClasses = $(this).attr("class").toString().split(' ');
+				if( $(this).hasClass('exclude') ) {
+					$(this).addClass('include');
+					$(this).removeClass('exclude');
+					includeTag(thisElementsClasses);
+				}
+				else {
+					$(this).addClass('exclude');
+					$(this).removeClass('include');
+					excludeTag(thisElementsClasses);
+				}
+				displayProjectsMatchingAllIncludedTags();
+			});
+
+			$('.expandAll').click(function(){
+				$('.full_description').each(function() {
+					$(this).slideDown();
+				});
+			});
+
+			$('.collapseAll').click(function(){
+				$('.full_description').each(function() {
+					$(this).slideUp();
+				});
+			});
+
+			$('.project').click(function() {
+				$(this).children("div").children("ul").slideToggle();
+			})
+
+
+		});
+	</script>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		html {
+			/*background-color: lightgray;*/
+          	background-color: #FAFAD2;
+			font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+		}
+		
+		#sidebar {
+			display: inline-block;
+			vertical-align: top;
+			width: 30%;
+			padding: 20px 5px 20px 20px;
+		}
+		#sidebar ul {
+			margin: 5px 15px 15px 15px;
+			list-style: none;
+		}
+		#content {
+			display: inline-block;
+			width: 60%;
+			padding: 20px;
+		}
+		li a {
+			color: white;
+			background-color: blue;
+			text-decoration: none;
+		}
+		h3 a {
+			text-decoration: none;
+		}
+		#content > ul {
+			margin: 5px;
+			list-style: none;
+		}
+		.project ul {
+			margin: 5px 30px;
+		}
+		.tag {
+			display: inline-block;
+			margin: 3px;
+			padding: 3px;
+			border-radius: 3px;
+			text-decoration: none;
+		}
+		.project {
+			/*width: 50%;*/
+			padding: 5px;
+			border-top: 1px solid silver;
+			border-bottom: 1px solid silver;
+		}
+		.project img {
+			display: inline-block;
+			vertical-align: top;
+			margin: 10px 0;
+			width: 20%;
+			border: 3px solid black;
+			border-radius: 3px;
+		}
+		.not_the_image {
+			padding: 5px;
+			display: inline-block;
+			width: 75%;
+		}
+		.include {
+			border: 3px solid orange;
+		}
+		.exclude {
+			border: 3px solid blue;
+		}
+		.taglist {
+			font-style: italic;
+			margin: 5px 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="sidebar">
+		<h3>portfolio tags (<a class="tag selectAll" href="#">all</a>|<a class="tag selectNone" href="#">none</a>) :</h3>
+		<ul id="filter">
+			<li>
+				<a class="tag persistent exclude mvc" href="#">MVC</a>
+				<a class="tag persistent exclude angular" href="#">Angular</a>
+				<a class="tag persistent exclude php" href="#">PHP</a>
+				<a class="tag persistent exclude swift" href="#">Swift</a>		
+				<a class="tag persistent exclude node" href="#">Node</a>
+				<a class="tag persistent exclude ecommerce" href="#">ecommerce</a>
+				<a class="tag persistent exclude d3" href="#">D3</a>
+				<a class="tag persistent exclude data" href="#">data</a>
+				<a class="tag persistent exclude deployed" href="#">deployed</a>
+				<a class="tag persistent exclude game" href="#">game</a>
+				<a class="tag persistent exclude javascript" href="#">JavaScript</a>
+				<a class="tag persistent exclude responsive" href="#">responsive</a>
+				<a class="tag persistent exclude bootstrap" href="#">Bootstrap</a>
+				<a class="tag persistent exclude frontend" href="#">front-end</a>
+				<a class="tag persistent exclude backend" href="#">back-end</a>
+				<a class="tag persistent exclude api" href="#">API</a>
+			</li>
+		</ul>
+		<h3>matching projects:</h3>
+		<ul id="matches">
+		</ul>
+	</div> <!-- closes sidebar -->
+	<div id="content">
+		<a name="portfolio"></a>
+		<h3>portfolio projects (<a class="collapseAll" href="#">collapseAll</a> | <a class="expandAll" href="#">expandAll</a>)</h3>
+		<ul>
+			<li class="project swift game responsive frontend api">
+				<img src="ss_frappybird.png">
+				<div class="not_the_image">
+				<h2>Frappy Bird</h2>
+				<p>An iOS dexterity game where the goal is to orient the device in three dimensions.</p>
+				<ul class="full_description">
+					<li>winner of the one-day internal hackathon
+					<li>coded in the Swift programming language using the XCode IDE
+					<li>processed the gyroscope's attitude data retrieved from the CoreMotion API
+				</ul>
+				<p class="taglist">(swift,game,responsive,front-end,api)</p>
+			</div>
+			</li>
+			<li class="project php mvc ecommerce bootstrap frontend backend deployed">
+				<img src="ss_handh.png">
+				<div class="not_the_image">
+				<h2>H&amp;H Supplies</h2>
+				<p>An e-commerce store that sells horseshoes and hand grenades.</p>
+				<ul class="full_description">
+					<li>coded in a team of 3 using PHP CodeIgniter MVC and MySQL</li>
+					<li>user portal includes product filtering and pagination, and checkout with Stripe API</li>
+					<li>admin portal includes order filtering and pagination, and new product image upload to Amazon S3</li>
+					<li>deployed to cloud using Amazon EC2, Ubuntu</li>
+				</ul>
+				<p class="taglist">(php,mvc,ecommerce,bootstrap,front-end,back-end,deployed)</p>
+			</div>
+			</li>
+			<li class="project angular node javascript data api d3 frontend">
+				<img src="ss_portfolioanalyzer.png">
+				<div class="not_the_image">
+				<h2>Portfolio Analyzer</h2>
+				<p>Tool for visualizing personal stock positions at a high level and across multiple accounts.</p>
+				<ul class="full_description">
+					<li>supports 2 input sources: brokerage-generated CSV file and manual form entry</li>
+					<li>Angular front end aggregates the data and presents it in table format</li>
+					<li>Node server requests stock quotes and historical prices via Yahoo Finance API</li>
+					<li>D3 visualization conveys multiple dimensions of position data​: size, performance, performance trend</li>
+				</ul>
+				<p class="taglist">(angular,node,javascript,data,api,d3,front-end)</p>
+			</div>
+			</li>
+			<li class="project javascript responsive deployed frontend">
+				<img src="ss_dinsmore.png">
+				<div class="not_the_image">
+				<h2>Dinsmore Landscape</h2>
+				<p>Redesigned a landscape company's website.</p>
+				<ul class="full_description">
+					<li>responsive design using CSS media queries</li>
+					<li>consolidated messaging around core services, and branded with testimonials</li>
+					<li>attached Google Analytics</li>
+					<li>visually expressive, incorporating my own original photography of client's properties</li>
+				</ul>
+				<p class="taglist">(javascript,responsive,front-end,deployed)</p>
+			</div>
+			</li>
+			<li class="project javascript responsive bootstrap deployed frontend">
+				<img src="ss_rodwoodmandotcom.png">
+				<div class="not_the_image">
+				<h2>rodwoodman.com</h2>
+				<p>Developed and maintained my own personal website.
+				<ul class="full_description">
+					<li>responsive design using Twitter Bootstrap</li>
+					<li>storage site for resume, portfolio, and photography samples</li>
+					<li>attached Google Analytics</li>
+				</ul>
+				<p class="taglist">(javascript,responsive,bootstrap,front-end,deployed)</p>
+			</div>
+			</li>
+		</ul>
+	</div> <!-- closes content -->
+</body>
+</html>
