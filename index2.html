@@ -17,8 +17,8 @@
 					switch (tagArray[i]) {
 						case 'tag':
 						case 'persistent':
-						case 'include':
-						case 'exclude':
+						case 'included':
+						case 'excluded':
 							break;
 						default:
 							includedTags[tagArray[i]] = true;
@@ -52,8 +52,8 @@
 					switch (tagArray[i]) {
 						case 'tag':
 						case 'persistent':
-						case 'include':
-						case 'exclude':
+						case 'included':
+						case 'excluded':
 							break;
 						default:
 							includedTags[tagArray[i]] = false;
@@ -105,11 +105,11 @@
 				// console.log("searching for: "+allIncludedClasses);
 				$('.matches_listing').text("");
 
-				$('.project').each(function() {
+				$('.project').each(function(){
 					$(this).hide();
 				});
 				if (match_operator == 'and') {
-					$(allIncludedClasses).each(function() {
+					$(allIncludedClasses).each(function(){
 						$(this).show();
 						var newText = $(this).children('div').children('h2').text();
 						$('#sidebar .matches_listing').append("<li>"+newText+"</li>");
@@ -132,15 +132,15 @@
 			}
 
 			$('.selectAll').click(function(){
-				$('.persistent').addClass('include');
-				$('.persistent').removeClass('exclude');
+				$('.persistent').addClass('included');
+				$('.persistent').removeClass('excluded');
 				includeAllTags();
 				displayProjectsMatchingTheIncludedTags();
 			});
 
 			$('.selectNone').click(function(){
-				$('.persistent').addClass('exclude');
-				$('.persistent').removeClass('include');
+				$('.persistent').addClass('excluded');
+				$('.persistent').removeClass('included');
 				excludeAllTags();
 				displayProjectsMatchingTheIncludedTags();
 			});
@@ -151,36 +151,50 @@
 
 			$('.persistent').click(function(){
 				var thisElementsClasses = $(this).attr("class").toString().split(' ');
-				if( $(this).hasClass('exclude') ) {
-					$(this).addClass('include');
-					$(this).removeClass('exclude');
+				if( $(this).hasClass('excluded') ) {
+					$(this).addClass('included');
+					$(this).removeClass('excluded');
 					includeTag(thisElementsClasses);
 				}
-				else {
-					$(this).addClass('exclude');
-					$(this).removeClass('include');
+				else if ( $(this).hasClass('included') ) {
+					$(this).addClass('excluded');
+					$(this).removeClass('included');
 					excludeTag(thisElementsClasses);
 				}
 				displayProjectsMatchingTheIncludedTags();
 			});
 
 			$('.expandAll').click(function(){
-				$('.full_description').each(function() {
+				$('.full_description').each(function(){
 					$(this).slideDown();
+				});
+				$('.project').each(function(){
+					$(this).removeClass('collapsed');
+					$(this).addClass('expanded');
 				});
 			});
 
 			$('.collapseAll').click(function(){
-				$('.full_description').each(function() {
+				$('.full_description').each(function(){
 					$(this).slideUp();
+				});
+				$('.project').each(function(){
+					$(this).removeClass('expanded');
+					$(this).addClass('collapsed');
 				});
 			});
 
-			$('.project').click(function() {
+			$('.project').click(function(){
 				$(this).children("div").children("ul").slideToggle();
+				if( $(this).hasClass('expanded') ) {
+					$(this).removeClass('expanded');
+					$(this).addClass('collapsed');
+				}
+				else if ( $(this).hasClass('collapsed') ) {
+					$(this).removeClass('collapsed');
+					$(this).addClass('expanded');
+				}
 			})
-
-
 		});
 	</script>
 	<style type="text/css">
@@ -231,7 +245,6 @@
 			text-decoration: none;
 		}
 		.project {
-			/*width: 50%;*/
 			padding: 5px;
 			border-top: 1px solid silver;
 			border-bottom: 1px solid silver;
@@ -240,19 +253,37 @@
 			display: inline-block;
 			vertical-align: top;
 			margin: 10px 0;
-			width: 20%;
 			border: 3px solid black;
 			border-radius: 3px;
 		}
 		.not_the_image {
 			padding: 5px;
 			display: inline-block;
-			width: 75%;
 		}
-		.include {
+		.project.expanded img {
+			width: 25%;
+		    -webkit-transition: width 0.4s, height 0.4s, -webkit-transform 0.4s;
+    		transition: width 0.4s, height 0.4s, transform 0.4s;
+		}
+		.project.expanded .not_the_image {
+			width: 70%;
+		    -webkit-transition: width 0.4s, height 0.4s, -webkit-transform 0.4s;
+    		transition: width 0.4s, height 0.4s, transform 0.4s;
+		}
+		.project.collapsed img {
+			width: 15%;
+		    -webkit-transition: width 0.4s, height 0.4s, -webkit-transform 0.4s;
+    		transition: width 0.4s, height 0.4s, transform 0.4s;
+		}
+		.project.collapsed .not_the_image {
+			width: 80%;
+		    -webkit-transition: width 0.4s, height 0.4s, -webkit-transform 0.4s;
+    		transition: width 0.4s, height 0.4s, transform 0.4s;
+		}
+		.included {
 			border: 3px solid orange;
 		}
-		.exclude {
+		.excluded {
 			border: 3px solid blue;
 		}
 		.taglist {
@@ -270,22 +301,22 @@
 		</form>
 		<ul id="filter">
 			<li>
-				<a class="tag persistent include mvc" href="#">MVC</a>
-				<a class="tag persistent include angular" href="#">Angular</a>
-				<a class="tag persistent include php" href="#">PHP</a>
-				<a class="tag persistent include swift" href="#">Swift</a>		
-				<a class="tag persistent include node" href="#">Node</a>
-				<a class="tag persistent include ecommerce" href="#">ecommerce</a>
-				<a class="tag persistent include d3" href="#">D3</a>
-				<a class="tag persistent include data" href="#">data</a>
-				<a class="tag persistent include deployed" href="#">deployed</a>
-				<a class="tag persistent include game" href="#">game</a>
-				<a class="tag persistent include javascript" href="#">JavaScript</a>
-				<a class="tag persistent include responsive" href="#">responsive</a>
-				<a class="tag persistent include bootstrap" href="#">Bootstrap</a>
-				<a class="tag persistent include frontend" href="#">front-end</a>
-				<a class="tag persistent include backend" href="#">back-end</a>
-				<a class="tag persistent include api" href="#">API</a>
+				<a class="tag persistent included mvc" href="#">MVC</a>
+				<a class="tag persistent included angular" href="#">Angular</a>
+				<a class="tag persistent included php" href="#">PHP</a>
+				<a class="tag persistent included swift" href="#">Swift</a>		
+				<a class="tag persistent included node" href="#">Node</a>
+				<a class="tag persistent included ecommerce" href="#">ecommerce</a>
+				<a class="tag persistent included d3" href="#">D3</a>
+				<a class="tag persistent included data" href="#">data</a>
+				<a class="tag persistent included deployed" href="#">deployed</a>
+				<a class="tag persistent included game" href="#">game</a>
+				<a class="tag persistent included javascript" href="#">JavaScript</a>
+				<a class="tag persistent included responsive" href="#">responsive</a>
+				<a class="tag persistent included bootstrap" href="#">Bootstrap</a>
+				<a class="tag persistent included frontend" href="#">front-end</a>
+				<a class="tag persistent included backend" href="#">back-end</a>
+				<a class="tag persistent included api" href="#">API</a>
 			</li>
 		</ul>
 		<h3>matching projects:</h3>
@@ -298,73 +329,110 @@
 		<ul class="matches_listing">
 		</ul>
 		<ul>
-			<li class="project swift game responsive frontend api">
+			<li class="project expanded swift game responsive frontend api">
 				<img src="ss_frappybird.png">
 				<div class="not_the_image">
-				<h2>Frappy Bird</h2>
-				<p>An iOS dexterity game where the goal is to orient the device in three dimensions.</p>
-				<ul class="full_description">
-					<li>winner of the one-day internal hackathon
-					<li>coded in the Swift programming language using the XCode IDE
-					<li>processed the gyroscope's attitude data retrieved from the CoreMotion API
-				</ul>
-				<p class="taglist">(swift,game,responsive,front-end,api)</p>
-			</div>
+					<h2>Frappy Bird</h2>
+					<p>An iOS dexterity game where the goal is to orient the device in three dimensions.</p>
+					<ul class="full_description">
+						<li>winner of the one-day internal hackathon
+						<li>coded in the Swift programming language using the XCode IDE
+						<li>processed the gyroscope's attitude data retrieved from the CoreMotion API
+					</ul>
+					<p class="taglist">(swift,game,responsive,front-end,api)</p>
+				</div>
 			</li>
-			<li class="project php mvc ecommerce bootstrap frontend backend deployed">
+			<li class="project expanded php mvc ecommerce bootstrap frontend backend deployed">
 				<img src="ss_handh.png">
 				<div class="not_the_image">
-				<h2>H&amp;H Supplies</h2>
-				<p>An e-commerce store that sells horseshoes and hand grenades.</p>
-				<ul class="full_description">
-					<li>coded in a team of 3 using PHP CodeIgniter MVC and MySQL</li>
-					<li>user portal includes product filtering and pagination, and checkout with Stripe API</li>
-					<li>admin portal includes order filtering and pagination, and new product image upload to Amazon S3</li>
-					<li>deployed to cloud using Amazon EC2, Ubuntu</li>
-				</ul>
-				<p class="taglist">(php,mvc,ecommerce,bootstrap,front-end,back-end,deployed)</p>
-			</div>
+					<h2>H&amp;H Supplies</h2>
+					<p>An e-commerce store that sells horseshoes and hand grenades.</p>
+					<ul class="full_description">
+						<li>coded in a team of 3 using PHP CodeIgniter MVC and MySQL</li>
+						<li>user portal includes product filtering and pagination, and checkout with Stripe API</li>
+						<li>admin portal includes order filtering and pagination, and new product image upload to Amazon S3</li>
+						<li>deployed to cloud using Amazon EC2, Ubuntu</li>
+					</ul>
+					<p class="taglist">(php,mvc,ecommerce,bootstrap,front-end,back-end,deployed)</p>
+				</div>
 			</li>
-			<li class="project angular node javascript data api d3 frontend">
+			<li class="project expanded angular node javascript data api d3 frontend">
 				<img src="ss_portfolioanalyzer.png">
 				<div class="not_the_image">
-				<h2>Portfolio Analyzer</h2>
-				<p>Tool for visualizing personal stock positions at a high level and across multiple accounts.</p>
-				<ul class="full_description">
-					<li>supports 2 input sources: brokerage-generated CSV file and manual form entry</li>
-					<li>Angular front end aggregates the data and presents it in table format</li>
-					<li>Node server requests stock quotes and historical prices via Yahoo Finance API</li>
-					<li>D3 visualization conveys multiple dimensions of position data​: size, performance, performance trend</li>
-				</ul>
-				<p class="taglist">(angular,node,javascript,data,api,d3,front-end)</p>
-			</div>
+					<h2>Portfolio Analyzer</h2>
+					<p>Tool for visualizing personal stock positions at a high level and across multiple accounts.</p>
+					<ul class="full_description">
+						<li>supports 2 input sources: brokerage-generated CSV file and manual form entry</li>
+						<li>Angular front end aggregates the data and presents it in table format</li>
+						<li>Node server requests stock quotes and historical prices via Yahoo Finance API</li>
+						<li>D3 visualization conveys multiple dimensions of position data​: size, performance, performance trend</li>
+					</ul>
+					<p class="taglist">(angular,node,javascript,data,api,d3,front-end)</p>
+				</div>
 			</li>
-			<li class="project javascript responsive deployed frontend">
+			<li class="project expanded javascript responsive deployed frontend">
 				<img src="ss_dinsmore.png">
 				<div class="not_the_image">
-				<h2>Dinsmore Landscape</h2>
-				<p>Redesigned a landscape company's website.</p>
-				<ul class="full_description">
-					<li>responsive design using CSS media queries</li>
-					<li>consolidated messaging around core services, and branded with testimonials</li>
-					<li>attached Google Analytics</li>
-					<li>visually expressive, incorporating my own original photography of client's properties</li>
-				</ul>
-				<p class="taglist">(javascript,responsive,front-end,deployed)</p>
-			</div>
+					<h2>Dinsmore Landscape</h2>
+					<p>Redesigned a landscape company's website.</p>
+					<ul class="full_description">
+						<li>responsive design using CSS media queries</li>
+						<li>consolidated messaging around core services, and branded with testimonials</li>
+						<li>attached Google Analytics</li>
+						<li>visually expressive, incorporating my own original photography of client's properties</li>
+					</ul>
+					<p class="taglist">(javascript,responsive,front-end,deployed)</p>
+				</div>
 			</li>
-			<li class="project javascript responsive bootstrap deployed frontend">
+			<li class="project expanded swift mvc game">
+				<img src="ss_ttt.png">
+				<div class="not_the_image">
+					<h2>TicTacToe</h2>
+					<p>Everybody knows TicTacToe!</p>
+					<ul class="full_description">
+						<li>game logic resides in its own class, allowing UIViewController to focus on only display-related functions</li>
+						<li>square updates are targeted, no redrawing of entire game board</li>
+					</ul>
+					<p class="taglist">(swift,mvc,game)</p>
+				</div>
+			</li>
+			<li class="project expanded swift mvc data">
+				<img src="ss_tipster.png">
+				<div class="not_the_image">
+					<h2>Tipster</h2>
+					<p>A mobile app that calculates the per-person tip.</p>
+					<ul class="full_description">
+						<li>user-controlled sliders set the party size and base tip percentage</li>
+						<li>3 sets of output data is presented for user fine-tuning</li>
+						<li>calculator logic resides in its own class, allowing UIViewController to focus on only display-related functions</li>
+					</ul>
+					<p class="taglist">(swift,mvc,data)</p>
+				</div>
+			</li>
+			<li class="project expanded javascript responsive bootstrap deployed frontend">
 				<img src="ss_rodwoodmandotcom.png">
 				<div class="not_the_image">
-				<h2>rodwoodman.com</h2>
-				<p>Developed and maintained my own personal website.
-				<ul class="full_description">
-					<li>responsive design using Twitter Bootstrap</li>
-					<li>storage site for resume, portfolio, and photography samples</li>
-					<li>attached Google Analytics</li>
-				</ul>
-				<p class="taglist">(javascript,responsive,bootstrap,front-end,deployed)</p>
-			</div>
+					<h2>rodwoodman.com</h2>
+					<p>Developed and maintained my own personal website.
+					<ul class="full_description">
+						<li>responsive design using Twitter Bootstrap</li>
+						<li>storage site for resume, portfolio, and photography samples</li>
+						<li>attached Google Analytics</li>
+					</ul>
+					<p class="taglist">(javascript,responsive,bootstrap,front-end,deployed)</p>
+				</div>
+			</li>
+			<li class="project expanded javascript game">
+				<img src="ss_pacman.png">
+				<div class="not_the_image">
+					<h2>PacMan Clone</h2>
+					<p>In-browser reproduction of a classic game.
+					<ul class="full_description">
+						<li>low-fidelity reproduction with just walls and coins</li>
+						<li>player movement mapped to cursor keys via onkeydown event-binding</li>
+					</ul>
+					<p class="taglist">(javascript,game)</p>
+				</div>
 			</li>
 		</ul>
 	</div> <!-- closes content -->
