@@ -1,106 +1,444 @@
 <!DOCTYPE html>
 <html lang="en">
-
-  <head>
-  
+<head>
+	<title>rodwoodman.com - portfolio</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="Rod Woodman portfolio, Roderick Woodman portfolio">
-    <meta name="description" content="Rod Woodman is a Silicon Valley software developer. This is his portfolio.">
+    <meta name="keywords" content="Rod Woodman, Roderick Woodman, portfolio">
+    <meta name="description" content="Rod Woodman is a Bay Area software developer.">
     <meta name="author" content="Rod Woodman">
-		<link rel="shortcut icon" href="img/favicon.ico">
+    <link href="global.css" rel="stylesheet">
+    <link href="portfolio.css" rel="stylesheet">
+	<link rel="shortcut icon" href="img/favicon.ico">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script>
+	    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	    ga('create', 'UA-57305536-1', 'auto');
+	    ga('send', 'pageview');
+	</script>
+	<script type="text/javascript">
+		$(document).ready(function(){
 
-    <title>rodwoodman.com | My Portfolio</title>
+			// ##### TAG HOUSEKEEPING #####
 
-    <!-- Bootstrap core CSS -->
-    <link href="dist/css/bootstrap.css" rel="stylesheet">
+			// maintain state for all currently-selected tags
+			var selectedTags = [];
 
-    <!-- Custom styles -->
-    <link href="index.css" rel="stylesheet">
+			// on ready, display projects and expand arrows for all projects
+			selectAllTags();
+			displayProjectsMatchingTheSelectedTags();
+			$('.project').each(function(){
+				$('.project_arrow').html('&#9660;'); // point down for expanded
+			});
 
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="assets/js/html5shiv.js"></script>
-      <script src="assets/js/respond.min.js"></script>
-    <![endif]-->
-    
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      ga('create', 'UA-57305536-1', 'auto');
-      ga('send', 'pageview');
-    </script>    
-    
-  </head>
+			// add the tags from this class list to the list of selected tags
+			function selectTag(tagArray) {
+				for (var i=0; i<tagArray.length; i++) {
+					switch (tagArray[i]) {
+						case 'tag':
+						case 'persistent':
+						case 'selected':
+						case 'deselected':
+							break;
+						default:
+							selectedTags[tagArray[i]] = true;
+							break;
+					}
+				}
+			}
 
-  <body>
+			function selectAllTags() {
+				selectedTags["angular"] = true;
+				selectedTags["api"] = true;
+				selectedTags["backend"] = true;
+				selectedTags["bootstrap"] = true;
+				selectedTags["d3"] = true;
+				selectedTags["data"] = true;
+				selectedTags["deployed"] = true;
+				selectedTags["ecommerce"] = true;
+				selectedTags["frontend"] = true;
+				selectedTags["game"] = true;
+				selectedTags["github"] = true;
+				selectedTags["javascript"] = true;
+				selectedTags["mvc"] = true;
+				selectedTags["node"] = true;
+				selectedTags["php"] = true;
+				selectedTags["responsive"] = true;	
+				selectedTags["swift"] = true;	
+			}
 
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="index.html">rodwoodman.com</a>
-        </div><!--/.navbar-header-->
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="dropdown">
-              <a href="portfolio.html">Portfolio <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="portfolio-dinsmore.html">Dinsmore Landscape Company</a></li>
-                <li><a href="portfolio-sedtalks.html">SED Talks</a></li>     
-                <li><a href="portfolio-lakeside.html">Lakeside Pottery</a></li>
-              </ul>
-            </li>
-            <li><a href="photography.html">Photography</a></li>
-          </ul>
-        </div><!--/.navbar-collapse -->
-      </div><!--/.container-->
-    </div><!--/.navbar-->
+			function deselectTag(tagArray) {
+				for (var i=0; i<tagArray.length; i++) {
+					// console.log(tagArray[i]);
+					switch (tagArray[i]) {
+						case 'tag':
+						case 'persistent':
+						case 'selected':
+						case 'deselected':
+							break;
+						default:
+							selectedTags[tagArray[i]] = false;
+							break;
+					}
+				}
+			}
 
-    <div class="jumbotron">
-      <div class="container">
-        <h1>My Portfolio</h1>
-        <p>The links below offer you more than just screenshots.  I also described the process that I followed and attached intermediate files so that hopefully you will understand the extent of and the motivations behind my work.</i>
-      </div><!--/.container-->
-    </div><!--/.jumbotron-->
+			function deselectAllTags() {
+				selectedTags["angular"] = false;
+				selectedTags["api"] = false;
+				selectedTags["backend"] = false;
+				selectedTags["bootstrap"] = false;
+				selectedTags["d3"] = false;
+				selectedTags["data"] = false;
+				selectedTags["deployed"] = false;
+				selectedTags["ecommerce"] = false;
+				selectedTags["frontend"] = false;
+				selectedTags["game"] = false;
+				selectedTags["github"] = false;
+				selectedTags["javascript"] = false;
+				selectedTags["mvc"] = false;
+				selectedTags["node"] = false;
+				selectedTags["php"] = false;	
+				selectedTags["responsive"] = false;	
+				selectedTags["swift"] = false;	
+			}
 
-    <div class="container">
-			<div class="row">
-				<a href="portfolio-dinsmore.html">
-					<div class="col-sm-4" id="color-dinsmore">
-						<h4>Dinsmore Landscape<br>Company</h4>
-						<img class="thumb-proj" src="img/dlc/dlc-new-summary1home250.png">
-					</div>
-				</a>
-				<a href="portfolio-sedtalks.html">
-					<div class="col-sm-4" id="color-sedtalks">
-						<h4>SED<br>Talks</h4>
-						<img class="thumb-proj" src="img/sed/sed-new-summary1home250.png">
-					</div>
-				</a>				
-				<a href="portfolio-lakeside.html">
-					<div class="col-sm-4" id="color-lakeside">
-						<h4>Lakeside<br>Pottery</h4>
-						<img class="thumb-proj" src="img/lp/lp-new-summary1home250.png">
-					</div>
-				</a>
-			</div><!--./row--> 
-      <hr>
-      <footer>
-        <p>&copy; Rod Woodman 2015</p>
-      </footer>
-    </div> <!--/.container-->
+			function displayProjectsMatchingTheSelectedTags() {
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="assets/js/jquery.js"></script>
-    <script src="dist/js/bootstrap.min.js"></script>
-    
-  </body>
-  
+				var match_operator = $('form input[type=radio]:checked').val();
+				var allSelectedClasses = "";
+				for (var key in selectedTags) {
+					if (selectedTags[key] == true) {
+						if (match_operator == 'and') {
+							allSelectedClasses += "." + key;
+						}
+						else if (match_operator == 'or') {
+							if (allSelectedClasses != "") {
+								allSelectedClasses += ", ";
+							}
+							allSelectedClasses += "." + key;	
+						}
+					}
+				}
+				// console.log("searching for: "+allSelectedClasses);
+				$('.matches_listing').text("");
+
+				$('.project').each(function(){
+					$(this).hide();
+				});
+				if (match_operator == 'and') {
+					$(allSelectedClasses).each(function(){
+						$(this).show();
+						var newText = $(this).children('div').children('h2').text();
+						$('#sidebar .matches_listing').append("<li>"+newText+"</li>");
+					});
+				}
+				else if (match_operator == 'or') {
+					$('.project').each(function() {
+						if ($(this).is(allSelectedClasses)) {
+							$(this).show();
+							var newText = $(this).children('div').children('h2').text();
+							$('#sidebar .matches_listing').append("<li>"+newText+"</li>");
+						}
+					});
+				}
+
+				if ($('#sidebar .matches_listing').text() == "") {
+					$('.matches_listing').append("<li>(no matches found)</li>");
+				}
+
+			}
+
+			$('.selectAll').click(function(){
+				$('.persistent').addClass('selected');
+				$('.persistent').removeClass('deselected');
+				selectAllTags();
+				displayProjectsMatchingTheSelectedTags();
+			});
+
+			$('.selectNone').click(function(){
+				$('.persistent').addClass('deselected');
+				$('.persistent').removeClass('selected');
+				deselectAllTags();
+				displayProjectsMatchingTheSelectedTags();
+			});
+
+			$('#tag_match_radio').click(function(){
+				displayProjectsMatchingTheSelectedTags();
+			});
+
+			$('.persistent').click(function(){
+				var thisElementsClasses = $(this).attr("class").toString().split(' ');
+				if( $(this).hasClass('deselected') ) {
+					$(this).addClass('selected');
+					$(this).removeClass('deselected');
+					selectTag(thisElementsClasses);
+				}
+				else if ( $(this).hasClass('selected') ) {
+					$(this).addClass('deselected');
+					$(this).removeClass('selected');
+					deselectTag(thisElementsClasses);
+				}
+				displayProjectsMatchingTheSelectedTags();
+			});
+
+			$('.expandAll').click(function(){
+				$('.project_bullets ul').each(function(){
+					$(this).slideDown();
+				});
+				$('.project').each(function(){
+					$(this).removeClass('collapsed');
+					$(this).addClass('expanded');
+					$(this).children(".project_body").children(".project_arrow").html('&#9660;'); // point down for expanded
+				});
+			});
+
+			$('.collapseAll').click(function(){
+				$('.project_bullets ul').each(function(){
+					$(this).slideUp();
+				});
+				$('.project').each(function(){
+					$(this).removeClass('expanded');
+					$(this).addClass('collapsed');
+					$(this).children(".project_body").children(".project_arrow").html('&#9658;'); // point right for collapsed
+				});
+			});
+
+			$('.project').click(function(){
+				$(this).children(".project_body").children(".project_bullets").children("ul").slideToggle();
+				if( $(this).hasClass('expanded') ) {
+					$(this).removeClass('expanded');
+					$(this).addClass('collapsed');
+					$(this).children(".project_body").children(".project_arrow").html('&#9658;'); // point right for collapsed
+				}
+				else if ( $(this).hasClass('collapsed') ) {
+					$(this).removeClass('collapsed');
+					$(this).addClass('expanded');
+					$(this).children(".project_body").children(".project_arrow").html('&#9660;'); // point right for expanded
+				}
+			})
+
+			$('.project a').click(function(event){
+				event.stopPropagation();
+			});
+		});
+	</script>
+</head>
+<nav>
+	<ul>
+		<li class="brand"><a href="./index.html">rodwoodman.com</a></li>
+		<li><a href="./portfolio.html">Portfolio</a></li>
+		<li><a href="./photography.html">Photography</a></li>
+	</ul>
+</nav>
+<body>
+	<div class="nav-spacer">
+	</div>
+	<div id="wrapper">
+		<div id="summary">
+	        <h1>Portfolio ...dashboard!</h1>
+	        <p>No more hunting around. By highlighting the tags below, I will quickly show you only those portfolio pieces that are of interest to you.
+	        <p>See, I told you that data presentation is important to me.</p>
+		</div>
+		<div class="horizontal-line">
+		</div>
+		<div id="below-summary">
+			<div id="sidebar">
+				<h3>portfolio tags (<a class="tag selectAll" href="#">all</a>|<a class="tag selectNone" href="#">none</a>) :</h3>
+				<form id="tag_match_radio">
+					<input type="radio" name="tag_match_operator" value="or" checked>OR
+					<input type="radio" name="tag_match_operator" value="and">AND
+				</form>
+				<ul id="filter">
+					<li>
+						<a class="tag persistent selected mvc" href="#">MVC</a>
+						<a class="tag persistent selected angular" href="#">Angular</a>
+						<a class="tag persistent selected php" href="#">PHP</a>
+						<a class="tag persistent selected swift" href="#">Swift</a>		
+						<a class="tag persistent selected node" href="#">Node</a>
+						<a class="tag persistent selected ecommerce" href="#">ecommerce</a>
+						<a class="tag persistent selected d3" href="#">D3</a>
+						<a class="tag persistent selected data" href="#">data</a>
+						<a class="tag persistent selected deployed" href="#">deployed</a>
+						<a class="tag persistent selected game" href="#">game</a>
+						<a class="tag persistent selected javascript" href="#">JavaScript</a>
+						<a class="tag persistent selected responsive" href="#">responsive</a>
+						<a class="tag persistent selected bootstrap" href="#">Bootstrap</a>
+						<a class="tag persistent selected frontend" href="#">front-end</a>
+						<a class="tag persistent selected backend" href="#">back-end</a>
+						<a class="tag persistent selected api" href="#">API</a>
+						<a class="tag persistent selected github" href="#">GitHub</a>
+					</li>
+				</ul>
+				<h3>matching portfolio projects:</h3>
+				<ul class="matches_listing">
+				</ul>
+			</div> <!-- closes sidebar -->
+			<div id="content">
+				<a name="portfolio"></a>
+				<h3>matching portfolio projects (<a class="collapseAll" href="#">collapseAll</a> | <a class="expandAll" href="#">expandAll</a>)</h3>
+				<ul class="matches_listing">
+				</ul>
+				<ul>
+					<li class="project expanded swift game responsive frontend api">
+						<img src="./img/ss_frappybird.png">
+						<div class="project_body">
+							<h2>Frappy Bird</h2>
+							<p>An iOS dexterity game where the goal is to orient the device in three dimensions.</p>
+							<div class="project_arrow">
+							</div>
+							<div class="project_bullets">
+								<ul>
+									<li>winner of the one-day internal hackathon
+									<li>coded in the Swift programming language using the XCode IDE
+									<li>processed the gyroscope's attitude data retrieved from the CoreMotion API
+								</ul>
+							</div>
+							<p class="taglist">(swift,game,responsive,front-end,api)</p>
+						</div>
+					</li>
+					<li class="project expanded php mvc ecommerce bootstrap frontend backend github deployed">
+						<img src="./img/ss_handh.png">
+						<div class="project_body">
+							<h2>H&amp;H Supplies 
+								<a href="https://github.com/roderickwoodman/ecommerce"><img src="./img/icon_github.png"></a>
+								<a href="http://52.11.100.130/"><img src="./img/icon_globe.png"></a>
+							</h2>
+							<p>An e-commerce store that sells horseshoes and hand grenades.</p>
+							<div class="project_arrow">
+							</div>
+							<div class="project_bullets">
+								<ul>
+									<li>coded in a team of 3 using PHP CodeIgniter MVC and MySQL</li>
+									<li>user portal includes product filtering and pagination, and checkout with Stripe API</li>
+									<li>admin portal includes order filtering and pagination, and new product image upload to Amazon S3</li>
+									<li>deployed to cloud using Amazon EC2, Ubuntu</li>
+								</ul>
+							</div>
+							<p class="taglist">(php,mvc,ecommerce,bootstrap,front-end,back-end,github,deployed)</p>
+						</div>
+					</li>
+					<li class="project expanded angular node javascript data api d3 frontend backend github">
+						<img src="./img/ss_portfolioanalyzer.png">
+						<div class="project_body">
+							<h2>Portfolio Analyzer
+								<a href="https://github.com/roderickwoodman/portfolioAnalyzer"><img src="./img/icon_github.png"></a>
+							</h2>
+							<p>Tool for visualizing personal stock positions at a high level and across multiple accounts.</p>
+							<div class="project_arrow">
+							</div>
+							<div class="project_bullets">
+								<ul>
+									<li>supports 2 input sources: brokerage-generated CSV file and manual form entry</li>
+									<li>Angular front end aggregates the data and presents it in table format</li>
+									<li>Node server requests stock quotes and historical prices via Yahoo Finance API</li>
+									<li>D3 visualization conveys multiple dimensions of position data​: size, performance, performance trend</li>
+								</ul>
+							</div>
+							<p class="taglist">(angular,node,javascript,data,api,d3,front-end,back-end,github)</p>
+						</div>
+					</li>
+					<li class="project expanded javascript responsive frontend deployed">
+						<img src="./img/ss_dinsmore.png">
+						<div class="project_body">
+							<h2>Dinsmore Landscape
+								<a href="http://www.dinsmorelandscape.com/"><img src="./img/icon_globe.png"></a>
+							</h2>
+							<p>Front-end redesign of a landscape company's website.</p>
+							<div class="project_arrow">
+							</div>
+							<div class="project_bullets">
+								<ul>
+									<li>responsive design using CSS media queries</li>
+									<li>consolidated messaging around core services, and branded with testimonials</li>
+									<li>attached Google Analytics</li>
+									<li>visually expressive, incorporating my own original photography of client's properties</li>
+								</ul>
+							</div>
+							<p class="taglist">(javascript,responsive,front-end,deployed)</p>
+						</div>
+					</li>
+					<li class="project expanded swift mvc game">
+						<img src="./img/ss_ttt.png">
+						<div class="project_body">
+							<h2>TicTacToe</h2>
+							<p>Everybody knows TicTacToe!</p>
+							<div class="project_arrow">
+							</div>
+							<div class="project_bullets">
+								<ul>
+									<li>game logic resides in its own class, allowing UIViewController to focus on only display-related functions</li>
+									<li>square updates are targeted, no redrawing of entire game board</li>
+								</ul>
+							</div>
+							<p class="taglist">(swift,mvc,game)</p>
+						</div>
+					</li>
+					<li class="project expanded swift mvc data">
+						<img src="./img/ss_tipster.png">
+						<div class="project_body">
+							<h2>Tipster</h2>
+							<p>A mobile app that calculates the per-person tip.</p>
+							<div class="project_arrow">
+							</div>
+							<div class="project_bullets">
+								<ul>
+									<li>user-controlled sliders set the party size and base tip percentage</li>
+									<li>3 sets of output data is presented for user fine-tuning</li>
+									<li>calculator logic resides in its own class, allowing UIViewController to focus on only display-related functions</li>
+								</ul>
+							</div>
+							<p class="taglist">(swift,mvc,data)</p>
+						</div>
+					</li>
+					<li class="project expanded javascript responsive frontend github deployed">
+						<img src="./img/ss_rodwoodmandotcom.png">
+						<div class="project_body">
+							<h2>rodwoodman.com
+								<a href="https://github.com/roderickwoodman/rodwoodman_dotcom"><img src="./img/icon_github.png"></a>
+								<a href="http://rodwoodman.com/"><img src="./img/icon_globe.png"></a>
+							</h2>
+							<p>Developed and maintained my own personal website.</p>
+							<div class="project_arrow">
+							</div>
+							<div class="project_bullets">
+								<ul>
+									<li>storage site for resume, portfolio, and photography samples</li>
+									<li>used jQuery to create dashboard controls for portfolio pieces</i>
+									<li>responsive design using Twitter Bootstrap</li>
+									<li>attached Google Analytics</li>
+								</ul>
+							</div>
+							<p class="taglist">(javascript,responsive,front-end,github,deployed)</p>
+						</div>
+					</li>
+					<li class="project expanded javascript game github">
+						<img src="./img/ss_pacman.png">
+						<div class="project_body">
+							<h2>PacMan Clone
+								<a href="https://github.com/roderickwoodman/pacman"><img src="./img/icon_github.png"></a>
+							</h2>
+							<p>In-browser reproduction of a classic game.
+							<div class="project_arrow">
+							</div>
+							<div class="project_bullets">
+								<ul>
+									<li>low-fidelity reproduction with just walls and coins</li>
+									<li>player movement mapped to cursor keys via onkeydown event-binding</li>
+								</ul>
+							</div>
+							<p class="taglist">(javascript,game,github)</p>
+						</div>
+					</li>
+				</ul>
+			</div> <!-- closes content -->
+		</div> <!-- closes below-summary -->
+	</div> <!-- closes wrapper -->
+</body>
+<footer>
+	<p>&copy; Rod Woodman 2015</p>
+</footer>
 </html>

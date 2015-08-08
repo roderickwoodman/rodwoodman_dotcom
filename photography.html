@@ -1,91 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-
-  <head>
-  
+<head>
+    <title>rodwoodman.com - photography</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="Rod Woodman photography, Roderick Woodman photography">
-    <meta name="description" content="Rod Woodman is a Silicon Valley software developer. These are his photos.">
+    <meta name="keywords" content="Rod Woodman, Roderick Woodman, photography">
+    <meta name="description" content="Rod Woodman is a Bay Area software developer.">
     <meta name="author" content="Rod Woodman">
-		<link rel="shortcut icon" href="img/favicon.ico">
-
-    <title>rodwoodman.com | My Photography</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="dist/css/bootstrap.css" rel="stylesheet">
-
-    <!-- Custom styles -->
-    <link href="index.css" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="assets/js/html5shiv.js"></script>
-      <script src="assets/js/respond.min.js"></script>
-    <![endif]-->
-
+    <link href="global.css" rel="stylesheet">
+    <link rel="shortcut icon" href="img/favicon.ico">
     <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      ga('create', 'UA-57305536-1', 'auto');
-      ga('send', 'pageview');
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-57305536-1', 'auto');
+        ga('send', 'pageview');
     </script>
-    
-  </head>
-
-  <body>
-
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="index.html">rodwoodman.com</a>
-        </div><!--/.navbar-header-->
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="dropdown">
-              <a href="portfolio.html">Portfolio <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="portfolio-dinsmore.html">Dinsmore Landscape Company</a></li>
-                <li><a href="portfolio-lakeside.html">Lakeside Pottery</a></li>
-                <li><a href="portfolio-sedtalks.html">SED Talks</a></li>              
-              </ul>
-            </li>
-            <li><a href="photography.html">Photography</a></li>
-          </ul>
-        </div><!--/.navbar-collapse -->
-      </div><!--/.container-->
-    </div><!--/.navbar-->
-
-    <div class="jumbotron">
-      <div class="container">
-        <h1>My Photography</h1>
-        <p>I enjoy taking photos. Here are some of my favorites.</p>
-      </div><!--/.container-->
-    </div><!--/.jumbotron-->
-
-    <div class="container">
-			<div class="row">
-				<div class="col-md-8">
-					<img class="collage" src="img/photography-collage.jpg">
-				</div>
-			</div><!--./row--> 
-      <hr>
-      <footer>
-        <p>&copy; Rod Woodman 2015</p>
-      </footer>
-    </div> <!--/.container-->
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="assets/js/jquery.js"></script>
-    <script src="dist/js/bootstrap.min.js"></script>
-    
-  </body>
-  
+    <style>
+        img {
+            width: 70%;
+        }
+    </style>
+</head>
+<nav>
+    <ul>
+        <li class="brand"><a href="./index.html">rodwoodman.com</a></li>
+        <li><a href="./portfolio.html">Portfolio</a></li>
+        <li><a href="./photography.html">Photography</a></li>
+    </ul>
+</nav>
+<body>
+    <div id="wrapper">
+        <div class="nav-spacer">
+        </div>
+        <div id="summary">
+            <h1>Photography</h1>
+            <p>I love to take photos. But I don't spend time losing myself in the gadgets or the post-production. My passion is for photo composition... deciding what is important and taking the time to frame the right shot.</p>
+        </div>
+        <div id="below-summary">
+        	<img class="collage" src="img/photography-collage.jpg"> 
+        </div> 
+    </div>  
+</body>
+<footer>
+    <p>&copy; Rod Woodman 2015</p>
+</footer>
 </html>

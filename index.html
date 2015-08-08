@@ -1,107 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-
-  <head>
-  
+<head>
+	<title>rodwoodman.com - personal website for Rod Woodman, a Bay Area software developer</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="Rod Woodman, Roderick Woodman">
-    <meta name="description" content="Rod Woodman is a Silicon Valley software developer.">
+    <meta name="description" content="Rod Woodman is a Bay Area software developer.">
     <meta name="author" content="Rod Woodman">
-		<link rel="shortcut icon" href="img/favicon.ico">
-		<!--
-    <link rel="shortcut icon" href="http://faviconist.com/icons/323e8b6518c4b7067f6e8b5c309e1f6b/favicon.ico" />
-    <link rel="shortcut icon" href="http://faviconist.com/icons/dec99db24bae435377bc02167e917aa6/favicon.ico" />
-    -->
-    <title>rodwoodman.com</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="dist/css/bootstrap.css" rel="stylesheet">
-
-    <!-- Custom styles -->
+    <link href="global.css" rel="stylesheet">
     <link href="index.css" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="assets/js/html5shiv.js"></script>
-      <script src="assets/js/respond.min.js"></script>
-    <![endif]--> 
-
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      ga('create', 'UA-57305536-1', 'auto');
-      ga('send', 'pageview');
-    </script>
-    
-  </head>
-
-  <body>
-
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="index.html">rodwoodman.com</a>
-        </div><!--./navbar-header-->
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="dropdown">
-              <a href="portfolio.html">Portfolio <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="portfolio-dinsmore.html">Dinsmore Landscape Company</a></li>
-                <li><a href="portfolio-sedtalks.html">SED Talks</a></li>     
-                <li><a href="portfolio-lakeside.html">Lakeside Pottery</a></li>
-              </ul>
-            </li>            
-            <li><a href="photography.html">Photography</a></li>
-          </ul>
-        </div><!--/.navbar-collapse-->
-      </div><!--/.container-->
-    </div><!--/.navbar-->
-
-    <div class="jumbotron">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-6">
-            <h1>Welcome!</h1>
-            <p>I'm Rod, a Silicon Valley software developer. I have extensive experience designing and debugging the hardware and software of complex computer systems and my strengths are layering the content and communication on top of this technology.</p>
-
-            <p>Take a look at my <a href="docs/resume-rodwoodman-15071.docx">resume</a> and my <a href="portfolio.html">portfolio</a>, and contact me on the right. I hope to hear from you.</p>
-            
-
-          </div>
-          <div class="col-sm-6">
-            <div id="headshot-container">
-							<img id="headshot" src="img/headshot-social-hi-none.png" alt="my social sites" usemap="#socialMap">
-
-							<map name="socialMap">
-								<area shape="circle" id="region-twitter" coords="238,91,28" href="https://twitter.com/roderickwoodman" alt="my Twitter">
-								<area shape="circle" id="region-facebook" coords="228,152,28" href="https://www.facebook.com/roderickwoodman" alt="my Facebook">
-								<area shape="circle" id="region-linkedin" coords="195,204,28" href="http://www.linkedin.com/pub/roderick-woodman/66/483/456" alt="my LinkedIn">
-							</map>
-            </div>
-          </div>          
-        </div><!--/.row-->
-      </div> <!--/.container-->
-	  </div><!--/.jumbotron-->
-	
-		<div class="container">
-			<footer>
-				<p>&copy; Rod Woodman 2015</p>
-			</footer>
-		</div><!--/.container-->
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="assets/js/jquery.js"></script>
-    <script src="dist/js/bootstrap.min.js"></script>
-    
-  </body>
-  
+	<link rel="shortcut icon" href="img/favicon.ico">
+	<script>
+	    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	    ga('create', 'UA-57305536-1', 'auto');
+	    ga('send', 'pageview');
+	</script>
+</head>
+<nav>
+	<ul>
+		<li class="brand"><a href="./index.html">rodwoodman.com</a></li>
+		<li><a href="./portfolio.html">Portfolio</a></li>
+		<li><a href="./photography.html">Photography</a></li>
+	</ul>
+</nav>
+<body>
+	<div class="nav-spacer">
+	</div>
+	<div id="wrapper">
+		<div id="summary">
+			<div id="left-side">
+		        <h1>Welcome!</h1>
+		        <p>I'm Rod, a Bay Area software developer. I have experience designing and debugging complex computer systems. I love data and the power of code. And my strengths are balancing data technology with data presentation to engineer useful products.</p>
+		        <p>So look at my <a href="docs/resume-rodwoodman-15071.docx">resume</a>, my <a href="portfolio.html">portfolio</a>, and my <a href="https://github.com/roderickwoodman">GitHub code</a>, and let's talk!</p>
+			</div>
+			<div id="right-side">
+				<img id="headshot" src="img/headshot-social-hi-none.png" alt="my social sites" usemap="#socialMap">
+				<map name="socialMap">
+					<area shape="circle" id="region-twitter" coords="238,91,28" href="https://twitter.com/roderickwoodman" alt="my Twitter">
+					<area shape="circle" id="region-facebook" coords="228,152,28" href="https://www.facebook.com/roderickwoodman" alt="my Facebook">
+					<area shape="circle" id="region-linkedin" coords="195,204,28" href="http://www.linkedin.com/pub/roderick-woodman/66/483/456" alt="my LinkedIn">
+				</map>
+		    </div>
+	    </div>
+	<div id="below-summary">
+   	</div>
+   	</div>
+</body>
+<footer>
+	<p>&copy; Rod Woodman 2015</p>
+</footer>
 </html>

@@ -1,0 +1,105 @@
+#sidebar {
+	display: inline-block;
+	vertical-align: top;
+	width: 30%;
+	padding-right:5px;
+}
+#sidebar ul {
+	margin: 5px 15px 15px 15px;
+	list-style: none;
+}
+#content {
+	display: inline-block;
+	width: 60%;
+}
+#sidebar li a {
+	font-weight: bold;
+    color: #4cf;
+	background-color: black;
+	text-decoration: none;
+}
+h3 a {
+	text-decoration: none;
+}
+#tag_match_radio input {
+	margin-left: 20px;
+	margin-right: 3px;
+}
+#content > ul {
+	margin: 5px;
+	list-style: none;
+}
+.tag {
+	display: inline-block;
+	border-radius: 10px;
+	text-decoration: none;
+}
+li > .tag {
+	margin: 2px;
+	padding: 5px;
+}
+.tag.selectAll, .tag.selectNone, a.collapseAll, a.expandAll {
+	padding: 0 5px;
+}
+.project {
+	padding: 5px;
+	border-top: 1px solid silver;
+	border-bottom: 1px solid silver;
+}
+.project > img {
+	display: inline-block;
+	vertical-align: top;
+	margin: 10px 0;
+	border: 3px solid black;
+	border-radius: 3px;
+}
+.project_body {
+	padding: 5px;
+	display: inline-block;
+}
+.project.expanded > img {
+	width: 25%;
+    -webkit-transition: width 0.4s, height 0.4s, -webkit-transform 0.4s;
+	transition: width 0.4s, height 0.4s, transform 0.4s;
+}
+.project.expanded .project_body {
+	width: 70%;
+    -webkit-transition: width 0.4s, height 0.4s, -webkit-transform 0.4s;
+	transition: width 0.4s, height 0.4s, transform 0.4s;
+}
+.project.collapsed > img {
+	width: 15%;
+    -webkit-transition: width 0.4s, height 0.4s, -webkit-transform 0.4s;
+	transition: width 0.4s, height 0.4s, transform 0.4s;
+}
+.project.collapsed .project_body {
+	width: 80%;
+    -webkit-transition: width 0.4s, height 0.4s, -webkit-transform 0.4s;
+	transition: width 0.4s, height 0.4s, transform 0.4s;
+}
+.project h2 img {
+	max-height: 25px;
+	max-width: 25px;
+	margin: 0 5px;
+}
+.project_arrow {
+	display: inline-block;
+	vertical-align: top;
+	width: 20px;
+}
+.project_bullets {
+	display: inline-block;
+	vertical-align: top;
+	width: 90%;
+	margin-left: 10px;
+}
+.selected {
+	border: 3px solid #ffa544;
+}
+.deselected {
+	border: 3px solid #eaeaea;
+}
+.taglist {
+	font-style: italic;
+	margin: 5px 0;
+}
