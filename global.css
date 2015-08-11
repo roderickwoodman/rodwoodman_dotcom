@@ -10,9 +10,6 @@ html {
 	display: inline-block;
 	padding: 10px;
 }
-#summary {
-	width: 70%;
-}
 h1, h3, p {
 	margin: 10px;
 	line-height: 1.4em;
@@ -27,33 +24,28 @@ nav {
 	width: 100%;
 	background-color: #222;
 	font-size: 18px;
-	/*line-height: 20px;*/
-}
-nav li {
-	display: inline-block;
-	padding: 15px;
+	}
+	nav li {
+		display: inline-block;
+		padding: 15px;
 
-}
-nav a {
-	/*display: block;*/
-	padding: 10px 15px;
-	text-decoration: none;
-}
-nav .brand a {
-	font-weight: bold;
-}
-nav a:link, nav a:visited {
-	color: #999;
-}
-nav .brand a:link, nav .brand a:visited {
-	color: #4cf;
-}
-nav a:hover, nav a:active, nav .brand a:hover, nav .brand a:active {
-	color: #fff;
-}
-.nav-spacer {
-	min-height: 53px;
-}
+	}
+	nav a {
+		padding: 10px 15px;
+		text-decoration: none;
+	}
+	nav .brand a {
+		font-weight: bold;
+	}
+	nav a:link, nav a:visited {
+		color: #999;
+	}
+	nav .brand a:link, nav .brand a:visited {
+		color: #4cf;
+	}
+	nav a:hover, nav a:active, nav .brand a:hover, nav .brand a:active {
+		color: #fff;
+	}
 footer {
 	width: 85%;
 	margin: 20px auto;
@@ -66,5 +58,38 @@ footer {
 	width: 85%;
 	margin: 0 auto;
 	border-bottom: 1px solid silver;
+
+}
+
+/*************************************************************/
+/************** SMALL SCREEN LAYOUT ADJUSTMENTS **************/
+
+@media (max-width : 600px) {
+
+nav li {
+	display: block;
+	/*border-top: 1px solid silver;*/
+	border-bottom: 1px solid silver;
+	/*padding-left: 40px;*/
+}
+.nav-spacer {
+	min-height: 160px;
+}
+#summary {
+	width: 100%;
+}
+
+}
+/*************************************************************/
+/************** LARGE SCREEN LAYOUT ADJUSTMENTS **************/
+
+@media (min-width : 601px) {	
+
+.nav-spacer {
+	min-height: 53px;
+}
+#summary {
+	width: 70%;
+}
 
 }
