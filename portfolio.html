@@ -224,6 +224,36 @@
 			$('.project a').click(function(event){
 				event.stopPropagation();
 			});
+
+			$('.hideme_link').click(function(){
+				$('#summary').slideUp();
+				$('#summary_div').hide();
+				$('.hideme_link').hide()
+				$('.showme_link').show();
+			});
+
+			$('.showme_link').click(function(){
+				$('#summary').slideDown();
+				$('#summary_div').show();
+				$('.showme_link').hide();
+				$('.hideme_link').show();
+			});
+
+			$('#content').mouseover(function(){
+				$('#sidebar').css({
+					"opacity": "0.25",
+					"transition": "opacity 6s ease-in-out"
+				});
+			});
+
+			$('#sidebar').mouseover(function(){
+				$('#sidebar').css({
+					"opacity": "1.0",
+					"transition": "opacity 0.8s ease-in-out"
+				});
+			});
+
+
 		});
 	</script>
 </head>
@@ -241,10 +271,11 @@
 		<div id="summary">
 	        <h1>Portfolio ...dashboard!</h1>
 	        <p>No more hunting around. By highlighting the tags below, I will quickly show you only those portfolio pieces that are of interest to you.
-	        <p>See, I told you that data presentation is important to me.</p>
+	        <p>See, I told you that data presentation is important to me.&nbsp;<a class="hideme_link" href="#">(hide this...)</a></p>
 		</div>
-		<div class="horizontal-line">
+		<div id="summary_div" class="horizontal-line">
 		</div>
+		<a class="showme_link" href="#">(show summary...)</a>
 		<div id="below-summary">
 			<div id="sidebar">
 				<h3>portfolio tags (&nbsp;<a class="tag selectAll" href="#">all</a>&nbsp;|&nbsp;<a class="tag selectNone" href="#">none</a>&nbsp;) :</h3>
