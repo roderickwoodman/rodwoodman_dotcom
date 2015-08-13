@@ -1,5 +1,6 @@
 #sidebar {
 	vertical-align: top;
+	min-width: 200px;
 	padding-right:5px;
 	font-size: 0.85em;
 }
@@ -31,8 +32,6 @@
 		border: 1px solid silver;
 	}
 #content {
-	display: inline-block;
-	width: 60%;
 }
 	#content > ul {
 		margin: 5px;
@@ -46,30 +45,35 @@
 		display: inline-block;
 		vertical-align: top;
 		margin: 10px 0;
-		border: 3px solid black;
-		border-radius: 3px;
+		/*border: 3px solid black;*/
+		/*border-radius: 3px;*/
 	}
 	#content .project_body {
+		width: 100%;
 		padding: 5px;
 		display: inline-block;
 	}
+	#content .project .project_bullets ul {
+		padding-left: 15px;
+		list-style: disc;
+	}
 	#content .project.expanded > img {
-		width: 25%;
+		/*width: 25%;*/
 	    -webkit-transition: width 0.4s, height 0.4s, -webkit-transform 0.4s;
 		transition: width 0.4s, height 0.4s, transform 0.4s;
 	}
 	#content .project.expanded .project_body {
-		width: 70%;
+		/*width: 70%;*/
 	    -webkit-transition: width 0.4s, height 0.4s, -webkit-transform 0.4s;
 		transition: width 0.4s, height 0.4s, transform 0.4s;
 	}
 	#content .project.collapsed > img {
-		width: 15%;
+		/*width: 15%;*/
 	    -webkit-transition: width 0.4s, height 0.4s, -webkit-transform 0.4s;
 		transition: width 0.4s, height 0.4s, transform 0.4s;
 	}
 	#content .project.collapsed .project_body {
-		width: 80%;
+		/*width: 80%;*/
 	    -webkit-transition: width 0.4s, height 0.4s, -webkit-transform 0.4s;
 		transition: width 0.4s, height 0.4s, transform 0.4s;
 	}
@@ -93,11 +97,11 @@
 		font-style: italic;
 		margin: 5px 0;
 	}
-	
+
 /*************************************************************/
 /************** SMALL SCREEN LAYOUT ADJUSTMENTS **************/
 
-@media (max-width : 600px) {
+@media (max-width : 750px) {
 	
 #sidebar {
 	display: block;
@@ -106,16 +110,55 @@
 #sidebar .matches_heading, #sidebar .matches_listing {
 	display:none;
 }
+#content {
+	display: block;
+	width: 100%;
+}
+	#content .project > img {
+		border: none;
+	}
+	#content .project.expanded > img {
+		width: 25%;
+	}
+	#content .project.expanded .project_body {
+		width: 70%;
+	}
+	#content .project.collapsed > img {
+		width: 0%;
+	}
+	#content .project.collapsed .project_body {
+		width: 100%;
+	}
 
 }
 /*************************************************************/
 /************** LARGE SCREEN LAYOUT ADJUSTMENTS **************/
 
-@media (min-width : 601px) {	
+@media (min-width : 751px) {	
 
 #sidebar {
 	display: inline-block;
-	width: 30%;
+	width: 25%;
 }
+#content {
+	display: inline-block;
+	width: 70%;
+}
+	#content .project > img {
+		border: 3px solid black;
+		border-radius: 3px;
+	}
+	#content .project.expanded > img {
+		width: 25%;
+	}
+	#content .project.expanded .project_body {
+		width: 70%;
+	}
+	#content .project.collapsed > img {
+		width: 15%;
+	}
+	#content .project.collapsed .project_body {
+		width: 80%;
+	}
 
 }
