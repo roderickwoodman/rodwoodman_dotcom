@@ -68,6 +68,7 @@
 				selectedTags["php"] = true;
 				selectedTags["responsive"] = true;	
 				selectedTags["swift"] = true;	
+				selectedTags["team"] = true;	
 			}
 
 			function deselectTag(tagArray) {
@@ -104,6 +105,7 @@
 				selectedTags["php"] = false;	
 				selectedTags["responsive"] = false;	
 				selectedTags["swift"] = false;	
+				selectedTags["team"] = false;	
 			}
 
 			function displayProjectsMatchingTheSelectedTags() {
@@ -285,6 +287,7 @@
 				</form>
 				<ul id="filter">
 					<li>
+						<a class="tag persistent selected team" href="#">team</a>
 						<a class="tag persistent selected mvc" href="#">MVC</a>
 						<a class="tag persistent selected angular" href="#">Angular</a>
 						<a class="tag persistent selected php" href="#">PHP</a>
@@ -312,7 +315,7 @@
 				<a name="portfolio"></a>
 				<h3>matching portfolio projects (&nbsp;<a class="collapseAll" href="#">collapseAll</a>&nbsp;|&nbsp;<a class="expandAll" href="#">expandAll</a>&nbsp;)</h3>
 				<ul>
-					<li class="project expanded php mvc ecommerce bootstrap frontend backend github deployed">
+					<li class="project expanded team php mvc ecommerce bootstrap frontend backend github deployed">
 						<img src="./img/ss_handh.png">
 						<div class="project_body">
 							<h2>H&amp;H Supplies 
@@ -330,10 +333,10 @@
 									<li>deployed to cloud using Amazon EC2, Ubuntu</li>
 								</ul>
 							</div>
-							<p class="taglist">(php,mvc,ecommerce,bootstrap,front-end,back-end,github,deployed)</p>
+							<p class="taglist">(team,php,mvc,ecommerce,bootstrap,front-end,back-end,github,deployed)</p>
 						</div>
 					</li>
-					<li class="project expanded swift game responsive frontend api">
+					<li class="project expanded team swift game responsive frontend api">
 						<img src="./img/ss_frappybird.png">
 						<div class="project_body">
 							<h2>Frappy Bird</h2>
@@ -343,11 +346,11 @@
 							<div class="project_bullets">
 								<ul>
 									<li>winner of the one-day internal hackathon
-									<li>coded in the Swift programming language using the XCode IDE
+									<li>coded in a team of 3 using Swift language and XCode IDE
 									<li>processed the gyroscope's attitude data retrieved from the CoreMotion API
 								</ul>
 							</div>
-							<p class="taglist">(swift,game,responsive,front-end,api)</p>
+							<p class="taglist">(team,swift,game,responsive,front-end,api)</p>
 						</div>
 					</li>
 					<li class="project expanded angular node javascript data api d3 frontend backend github">
@@ -390,7 +393,7 @@
 							<p class="taglist">(javascript,responsive,front-end,deployed)</p>
 						</div>
 					</li>
-					<li class="project expanded swift mvc game">
+					<li class="project expanded team swift mvc game">
 						<img src="./img/ss_ttt.png">
 						<div class="project_body">
 							<h2>TicTacToe</h2>
@@ -399,11 +402,12 @@
 							</div>
 							<div class="project_bullets">
 								<ul>
+									<li>coded in a team of 3 using Swift language and XCode IDE
 									<li>game logic resides in its own class, allowing UIViewController to focus on only display-related functions</li>
 									<li>square updates are targeted, no redrawing of entire game board</li>
 								</ul>
 							</div>
-							<p class="taglist">(swift,mvc,game)</p>
+							<p class="taglist">(team,swift,mvc,game)</p>
 						</div>
 					</li>
 					<li class="project expanded javascript responsive frontend github deployed">
