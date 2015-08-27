@@ -209,6 +209,32 @@
 				});
 			});
 
+			$('#chkLessons').click(function(){
+				if ($(this).is(':checked')) {
+					$('.lessons').each(function(){
+						$(this).slideDown();
+					});
+				}
+				else {
+					$('.lessons').each(function(){
+						$(this).slideUp();
+					});					
+				}
+			});
+
+			$('#chkProudest').click(function(){
+				if ($(this).is(':checked')) {
+					$('.proudest').each(function(){
+						$(this).slideDown();
+					});
+				}
+				else {
+					$('.proudest').each(function(){
+						$(this).slideUp();
+					});					
+				}
+			});
+
 			$('.project').click(function(){
 				$(this).children(".project_body").children(".project_bullets").children("ul").slideToggle();
 				if( $(this).hasClass('expanded') ) {
@@ -312,7 +338,10 @@
 				</ul>
 			</div> <!-- closes sidebar -->
 			<div id="content">
-				<a name="portfolio"></a>
+				<form id="desc_checkboxes">
+					<input type="checkbox" id="chkLessons" value="lessons" checked><label for="chkLessons">show lessons</label>
+					<input type="checkbox" id="chkProudest" value="proudest" checked><label for="chkProudest">show proudest</label>
+				</form>
 				<h3>matching portfolio projects (&nbsp;<a class="collapseAll" href="#">collapseAll</a>&nbsp;|&nbsp;<a class="expandAll" href="#">expandAll</a>&nbsp;)</h3>
 				<ul>
 					<li class="project expanded team php mvc ecommerce bootstrap frontend backend github deployed">
@@ -376,7 +405,7 @@
 									<li>D3 visualization conveys multiple dimensions of position data​: size, performance, performance trend</li>
 								</ul>
 							</div>
-							<p class="lessons"><strong>LESSONS:</strong> JavaScript async issues on both the CSV file upload and on the server API requests</p>
+							<p class="lessons"><strong>LESSONS:</strong> debugging JavaScript async issues on both the CSV file upload and on the server API requests</p>
 							<p class="proudest"><strong>PROUDEST:</strong> my ability to learn the D3 that was needed to fit the design</p>
 							<p class="taglist">(angular,node,javascript,data,api,d3,front-end,back-end,github)</p>
 						</div>

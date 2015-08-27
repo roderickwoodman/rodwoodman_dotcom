@@ -33,6 +33,9 @@
 	}
 #content {
 }
+	#content #desc_checkboxes input {
+		margin: 0 2px 0 12px;
+	}
 	#content > ul {
 		margin: 5px;
 		list-style: none;
