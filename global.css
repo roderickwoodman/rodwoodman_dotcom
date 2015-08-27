@@ -10,6 +10,9 @@ html {
 	display: inline-block;
 	padding: 10px;
 }
+#summary ol {
+	padding-left: 60px;
+}
 h1, h3, p, .hideme_link, .showme_link {
 	margin: 10px;
 	line-height: 1.4em;

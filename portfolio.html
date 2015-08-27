@@ -235,6 +235,19 @@
 				}
 			});
 
+			$('#chkTechnologies').click(function(){
+				if ($(this).is(':checked')) {
+					$('.technologies').each(function(){
+						$(this).slideDown();
+					});
+				}
+				else {
+					$('.technologies').each(function(){
+						$(this).slideUp();
+					});					
+				}
+			});
+
 			$('.project').click(function(){
 				$(this).children(".project_body").children(".project_bullets").children("ul").slideToggle();
 				if( $(this).hasClass('expanded') ) {
@@ -298,8 +311,12 @@
 	<div id="wrapper">
 		<div id="summary">
 	        <h1>Portfolio ...dashboard!</h1>
-	        <p>No more hunting around. By highlighting the tags below, I will quickly show you only those portfolio pieces that are of interest to you.
-	        <p>See, I told you that data presentation is important to me. ;-) &nbsp;<a class="hideme_link" href="#">(hide this...)</a></p>
+	        <p>What parts of my work do you want to see? You just need to...</p>
+				<ol>
+					<li>select the tags (below-left)</li>
+					<li>select the checkboxes (below-right)</li>
+				</ol>
+	        <p>...data presentation, FTW! &nbsp;<a class="hideme_link" href="#">(hide this...)</a></p>
 		</div>
 		<div id="summary_div" class="horizontal-line">
 		</div>
@@ -341,6 +358,7 @@
 				<form id="desc_checkboxes">
 					<input type="checkbox" id="chkLessons" value="lessons" checked><label for="chkLessons">show lessons</label>
 					<input type="checkbox" id="chkProudest" value="proudest" checked><label for="chkProudest">show proudest</label>
+					<input type="checkbox" id="chkTechnologies" value="technologies" checked><label for="chkTechnologies">show technologies</label>
 				</form>
 				<h3>matching portfolio projects (&nbsp;<a class="collapseAll" href="#">collapseAll</a>&nbsp;|&nbsp;<a class="expandAll" href="#">expandAll</a>&nbsp;)</h3>
 				<ul>
@@ -364,7 +382,7 @@
 							</div>
 							<p class="lessons"><strong>LESSONS:</strong> task delegation, git branching, and GitHub code sharing</p>
 							<p class="proudest"><strong>PROUDEST:</strong> we were one of only two teams to finish within the given time period</p>
-							<p class="taglist">(team,php,mvc,ecommerce,bootstrap,front-end,back-end,github,deployed)</p>
+							<p class="technologies">(team,php,mvc,ecommerce,bootstrap,front-end,back-end,github,deployed)</p>
 						</div>
 					</li>
 					<li class="project expanded team swift game responsive frontend api github">
@@ -385,7 +403,7 @@
 							</div>
 							<p class="lessons"><strong>LESSONS:</strong> working with the CoreMotion API</p>
 							<p class="proudest"><strong>PROUDEST:</strong> this game is timeless, I still play it!</p>
-							<p class="taglist">(team,swift,game,responsive,front-end,api,github)</p>
+							<p class="technologies">(team,swift,game,responsive,front-end,api,github)</p>
 						</div>
 					</li>
 					<li class="project expanded angular node javascript data api d3 frontend backend github">
@@ -407,7 +425,7 @@
 							</div>
 							<p class="lessons"><strong>LESSONS:</strong> debugging JavaScript async issues on both the CSV file upload and on the server API requests</p>
 							<p class="proudest"><strong>PROUDEST:</strong> my ability to learn the D3 that was needed to fit the design</p>
-							<p class="taglist">(angular,node,javascript,data,api,d3,front-end,back-end,github)</p>
+							<p class="technologies">(angular,node,javascript,data,api,d3,front-end,back-end,github)</p>
 						</div>
 					</li>
 					<li class="project expanded team swift node javascript game frontend backend github">
@@ -429,7 +447,7 @@
 							</div>
 							<p class="lessons"><strong>LESSONS:</strong> getting iOS and Node to work together using sockets</p>
 							<p class="proudest"><strong>PROUDEST:</strong> this design is very extensible to any JavaScript browser game</p>
-							<p class="taglist">(team,swift,node,javascript,game,front-end,back-end,github)</p>
+							<p class="technologies">(team,swift,node,javascript,game,front-end,back-end,github)</p>
 						</div>
 					</li>
 					<li class="project expanded javascript responsive frontend deployed">
@@ -451,7 +469,7 @@
 							</div>
 							<p class="lessons"><strong>LESSONS:</strong> manipulating dozens of images, working for a client</p>
 							<p class="proudest"><strong>PROUDEST:</strong> integrating my own photography into the website design</p>
-							<p class="taglist">(javascript,responsive,front-end,deployed)</p>
+							<p class="technologies">(javascript,responsive,front-end,deployed)</p>
 						</div>
 					</li>
 					<li class="project expanded team swift mvc game">
@@ -470,7 +488,7 @@
 							</div>
 							<p class="lessons"><strong>LESSONS:</strong> following MVC logic during Swift implementation</p>
 							<p class="proudest"><strong>PROUDEST:</strong> the code does not save any "box" state, but queries for it when one is tapped</p>
-							<p class="taglist">(team,swift,mvc,game)</p>
+							<p class="technologies">(team,swift,mvc,game)</p>
 						</div>
 					</li>
 					<li class="project expanded javascript responsive frontend github deployed">
@@ -493,7 +511,7 @@
 							</div>
 							<p class="lessons"><strong>LESSONS:</strong> managing website hosting</p>
 							<p class="proudest"><strong>PROUDEST:</strong> my portfolio dashboard idea... both an original and user-centered design</p>
-							<p class="taglist">(javascript,responsive,front-end,github,deployed)</p>
+							<p class="technologies">(javascript,responsive,front-end,github,deployed)</p>
 						</div>
 					</li>
 					<li class="project expanded swift mvc data">
@@ -512,7 +530,7 @@
 							</div>
 							<p class="lessons"><strong>LESSONS:</strong> the XCode constraint management learning curve</p>
 							<p class="proudest"><strong>PROUDEST:</strong> the precise, pixel-perfect look of the layout</p>
-							<p class="taglist">(swift,mvc,data)</p>
+							<p class="technologies">(swift,mvc,data)</p>
 						</div>
 					</li>
 					<li class="project expanded javascript game github">
@@ -532,7 +550,7 @@
 							</div>
 							<p class="lessons"><strong>LESSONS:</strong> game basics like game loops and collision detection </p>
 							<p class="proudest"><strong>PROUDEST:</strong> my first JavaScript game</p>
-							<p class="taglist">(javascript,game,github)</p>
+							<p class="technologies">(javascript,game,github)</p>
 						</div>
 					</li>
 				</ul>
