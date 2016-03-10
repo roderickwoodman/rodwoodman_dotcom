@@ -56,6 +56,7 @@
 				selectedTags["backend"] = true;
 				selectedTags["bootstrap"] = true;
 				selectedTags["d3"] = true;
+				selectedTags["dashboard"] = true;
 				selectedTags["data"] = true;
 				selectedTags["deployed"] = true;
 				selectedTags["ecommerce"] = true;
@@ -66,6 +67,7 @@
 				selectedTags["mvc"] = true;
 				selectedTags["node"] = true;
 				selectedTags["php"] = true;
+				selectedTags["python"] = true;
 				selectedTags["responsive"] = true;	
 				selectedTags["swift"] = true;	
 				selectedTags["team"] = true;	
@@ -93,6 +95,7 @@
 				selectedTags["backend"] = false;
 				selectedTags["bootstrap"] = false;
 				selectedTags["d3"] = false;
+				selectedTags["dashboard"] = false;
 				selectedTags["data"] = false;
 				selectedTags["deployed"] = false;
 				selectedTags["ecommerce"] = false;
@@ -103,6 +106,7 @@
 				selectedTags["mvc"] = false;
 				selectedTags["node"] = false;
 				selectedTags["php"] = false;	
+				selectedTags["python"] = false;	
 				selectedTags["responsive"] = false;	
 				selectedTags["swift"] = false;	
 				selectedTags["team"] = false;	
@@ -333,19 +337,21 @@
 						<a class="tag persistent selected team" href="#">team</a>
 						<a class="tag persistent selected mvc" href="#">MVC</a>
 						<a class="tag persistent selected angular" href="#">Angular</a>
+						<a class="tag persistent selected javascript" href="#">JavaScript</a>
+						<a class="tag persistent selected python" href="#">Python</a>
 						<a class="tag persistent selected php" href="#">PHP</a>
 						<a class="tag persistent selected swift" href="#">Swift</a>		
 						<a class="tag persistent selected node" href="#">Node</a>
-						<a class="tag persistent selected ecommerce" href="#">ecommerce</a>
+						<a class="tag persistent selected bootstrap" href="#">Bootstrap</a>
 						<a class="tag persistent selected d3" href="#">D3</a>
 						<a class="tag persistent selected data" href="#">data</a>
-						<a class="tag persistent selected deployed" href="#">deployed</a>
+						<a class="tag persistent selected dashboard" href="#">dashboard</a>
+						<a class="tag persistent selected ecommerce" href="#">ecommerce</a>
 						<a class="tag persistent selected game" href="#">game</a>
-						<a class="tag persistent selected javascript" href="#">JavaScript</a>
 						<a class="tag persistent selected responsive" href="#">responsive</a>
-						<a class="tag persistent selected bootstrap" href="#">Bootstrap</a>
 						<a class="tag persistent selected frontend" href="#">front-end</a>
 						<a class="tag persistent selected backend" href="#">back-end</a>
+						<a class="tag persistent selected deployed" href="#">deployed</a>
 						<a class="tag persistent selected api" href="#">API</a>
 						<a class="tag persistent selected github" href="#">GitHub</a>
 					</li>
@@ -362,6 +368,27 @@
 				</form>
 				<h3>matching portfolio projects (&nbsp;<a class="collapseAll" href="#">collapseAll</a>&nbsp;|&nbsp;<a class="expandAll" href="#">expandAll</a>&nbsp;)</h3>
 				<ul>
+					<li class="project expanded python javascript mvc data dashboard bootstrap frontend backend deployed">
+						<img src="./img/ss_tpw.png">
+						<div class="project_body">
+							<h2>Truepath Wireless LLC (NMS software)
+							</h2>
+							<p>The Network Management System (NMS) software displays network quality data and commands mobile endpoints.</p>
+							<div class="project_arrow">
+							</div>
+							<div class="project_bullets">
+								<ul>
+                                    <li>tech stack includes device-side “agent” code (PHP/bash/cron), Web browser dashboard code (Bootstrap, jQWidgets, HighCharts, Google Maps, Leaflet), and server back-end code (Python, Flask, MongoDB)</li>
+									<li>different dashboard templates for different device endpoints and user roles</li>
+									<li>automatic http-based network quality stats uploading from devices to a MongoDB database</li>
+									<li>aggregate metrics are calculated server-side for business planning needs</li>
+								</ul>
+							</div>
+							<p class="lessons"><strong>LESSONS:</strong> working at a startup, synchronizing releases with firmware releases</p>
+							<p class="proudest"><strong>PROUDEST:</strong> redesigned the dashboard UI to support multiple endpoints and additional debug information</p>
+							<p class="technologies">(python,javascript,mvc,data,dashboard,bootstrap,front-end,back-end,deployed)</p>
+						</div>
+					</li>
 					<li class="project expanded team php mvc ecommerce bootstrap frontend backend github deployed">
 						<img src="./img/ss_handh.png">
 						<div class="project_body">
