@@ -60,9 +60,11 @@
 				selectedTags["data"] = true;
 				selectedTags["deployed"] = true;
 				selectedTags["ecommerce"] = true;
+				selectedTags["extjs"] = true;
 				selectedTags["frontend"] = true;
 				selectedTags["game"] = true;
 				selectedTags["github"] = true;
+				selectedTags["go"] = true;
 				selectedTags["javascript"] = true;
 				selectedTags["mvc"] = true;
 				selectedTags["node"] = true;
@@ -99,9 +101,11 @@
 				selectedTags["data"] = false;
 				selectedTags["deployed"] = false;
 				selectedTags["ecommerce"] = false;
+				selectedTags["extjs"] = false;	
 				selectedTags["frontend"] = false;
 				selectedTags["game"] = false;
 				selectedTags["github"] = false;
+				selectedTags["go"] = false;	
 				selectedTags["javascript"] = false;
 				selectedTags["mvc"] = false;
 				selectedTags["node"] = false;
@@ -338,6 +342,8 @@
 						<a class="tag persistent selected mvc" href="#">MVC</a>
 						<a class="tag persistent selected angular" href="#">Angular</a>
 						<a class="tag persistent selected javascript" href="#">JavaScript</a>
+						<a class="tag persistent selected extjs" href="#">ExtJS</a>
+						<a class="tag persistent selected go" href="#">Go</a>
 						<a class="tag persistent selected python" href="#">Python</a>
 						<a class="tag persistent selected php" href="#">PHP</a>
 						<a class="tag persistent selected swift" href="#">Swift</a>		
@@ -368,20 +374,61 @@
 				</form>
 				<h3>matching portfolio projects (&nbsp;<a class="collapseAll" href="#">collapseAll</a>&nbsp;|&nbsp;<a class="expandAll" href="#">expandAll</a>&nbsp;)</h3>
 				<ul>
+					<li class="project expanded go javascript extjs mvc data dashboard frontend backend">
+                        <figure class="project_leftcolumn">
+                            <img src="./img/ss_aruba.png">
+                            <figcaption class="project_hyperlinks">
+                                <a href="./img/ss_aruba_activity.png">1</a>
+                                <a href="./img/ss_aruba_resultsall.png">2</a>
+                                <a href="./img/ss_aruba_resultsfilter.png">3</a>
+                                <a href="./img/ss_aruba_resultsdetail.png">4</a>
+                                <a href="./img/ss_aruba_setup.png">5</a>
+                                <a href="./img/ss_aruba_setupserver.png">6</a>
+                            </figcaption>
+                        </figure>
+						<div class="project_body">
+							<h2>Aurba Networks, an HPE Company (ACME config auditing tool)
+							</h2>
+							<p>I was the sole software developer on the ACME Extension to the Aruba ClearPass NAC product. This tool is a container-based add-on for auditing and remediating Policy Manager configurations across hundreds of clusters.</p>
+							<div class="project_arrow">
+							</div>
+							<div class="project_bullets">
+								<ul>
+                                    <li>tech stack includes backend code (Go/sqlite/APIs), Web browser dashboard code (ExtJS), and a container deployment environment (Docker)</li>
+                                    <li>dashboard allows the running and scheduling of audit jobs and then the filtering and exporting of results from the database</li>
+									<li>backend performs REST APIs with the reference and target machines in order to compare complex configs</li>
+									<li>flexible filtering and speedy windowing allow the user to quickly browse and drill down into the desired subset of results</li>
+								</ul>
+							</div>
+							<p class="lessons"><strong>LESSONS:</strong> satisfying a customer across multiple degrees of indirection (subcontractor, geography, government) </p>
+							<p class="proudest"><strong>PROUDEST:</strong> layering filtering for the user while maintaining generic back-end APIs and SQL queries</p>
+							<p class="technologies">(go,javascript,extjs,mvc,data,dashboard,front-end,back-end)</p>
+						</div>
+					</li>
 					<li class="project expanded python javascript mvc data dashboard bootstrap frontend backend deployed">
-						<img src="./img/ss_tpw.png">
+                        <figure class="project_leftcolumn">
+                            <img src="./img/ss_tpw.png">
+                            <figcaption class="project_hyperlinks">
+                                <a href="./img/ss_tpwdashbts.png">1</a>
+                                <a href="./img/ss_tpwmap.png">2</a>
+                                <a href="./img/ss_tpwdashcpe.png">3</a>
+                                <a href="./img/ss_tpwdashlink.png">4</a>
+                                <a href="./img/ss_tpwfwupgrade.png">5</a>
+                                <a href="./img/ss_tpwmot.png">6</a>
+                            </figcaption>
+                        </figure>
 						<div class="project_body">
 							<h2>Truepath Wireless LLC (NMS software)
 							</h2>
-							<p>The Network Management System (NMS) software displays network quality data and commands mobile endpoints.</p>
+							<p>I was the sole full-time software developer on the Network Management System (NMS) code. This combination of Web- and agent-software was used to display network quality data and command mobile endpoints.</p>
 							<div class="project_arrow">
 							</div>
 							<div class="project_bullets">
 								<ul>
                                     <li>tech stack includes device-side “agent” code (PHP/bash/cron), Web browser dashboard code (Bootstrap, jQWidgets, HighCharts, Google Maps, Leaflet), and server back-end code (Python, Flask, MongoDB)</li>
-									<li>different dashboard templates for different device endpoints and user roles</li>
-									<li>automatic http-based network quality stats uploading from devices to a MongoDB database</li>
-									<li>aggregate metrics are calculated server-side for business planning needs</li>
+									<li>designed different dashboard views for different user roles and device endpoint types</li>
+									<li>ensured that stats uploading from the endpoints to the system proceeded efficiently and with minimal downtime</li>
+									<li>created additional, aggregate data calculations on the backend for business planning needs</li>
 								</ul>
 							</div>
 							<p class="lessons"><strong>LESSONS:</strong> working at a startup, synchronizing releases with firmware releases</p>
@@ -390,7 +437,9 @@
 						</div>
 					</li>
 					<li class="project expanded team php mvc ecommerce bootstrap frontend backend github deployed">
-						<img src="./img/ss_handh.png">
+                        <figure class="project_leftcolumn">
+                            <img src="./img/ss_handh.png">
+                        </figure>
 						<div class="project_body">
 							<h2>H&amp;H Supplies 
 								<a href="https://github.com/roderickwoodman/ecommerce"><img src="./img/icon_github.png"></a>
@@ -413,7 +462,9 @@
 						</div>
 					</li>
 					<li class="project expanded team angular javascript frontend api github">
-						<img src="./img/ss_link.png">
+                        <figure class="project_leftcolumn">
+                            <img src="./img/ss_link.png">
+                        </figure>
 						<div class="project_body">
 							<h2>Liberty In North Korea
 								<a href="https://github.com/roderickwoodman/LibertyInNorthKorea"><img src="./img/icon_github.png"></a>
@@ -435,7 +486,9 @@
 						</div>
 					</li>					
 					<li class="project expanded team swift game responsive frontend api github">
-						<img src="./img/ss_frappybird.png">
+                        <figure class="project_leftcolumn">
+                            <img src="./img/ss_frappybird.png">
+                        </figure>
 						<div class="project_body">
 							<h2>Frappy Bird
 								<a href="https://github.com/roderickwoodman/frappyBird"><img src="./img/icon_github.png"></a>
@@ -456,7 +509,9 @@
 						</div>
 					</li>
 					<li class="project expanded angular node javascript data api d3 frontend backend github">
-						<img src="./img/ss_portfolioanalyzer.png">
+                        <figure class="project_leftcolumn">
+                            <img src="./img/ss_portfolioanalyzer.png">
+                        </figure>
 						<div class="project_body">
 							<h2>Portfolio Analyzer
 								<a href="https://github.com/roderickwoodman/portfolioAnalyzer"><img src="./img/icon_github.png"></a>
@@ -478,7 +533,9 @@
 						</div>
 					</li>
 					<li class="project expanded team swift node javascript game frontend backend github">
-						<img src="./img/ss_awesomecontroller.png">
+                        <figure class="project_leftcolumn">
+                            <img src="./img/ss_awesomecontroller.png">
+                        </figure>
 						<div class="project_body">
 							<h2>Awesome Controller
 								<a href="https://github.com/roderickwoodman/awesomeController"><img src="./img/icon_github.png"></a>
@@ -500,7 +557,9 @@
 						</div>
 					</li>
 					<li class="project expanded javascript responsive frontend deployed">
-						<img src="./img/ss_dinsmore.png">
+                        <figure class="project_leftcolumn">
+                            <img src="./img/ss_dinsmore.png">
+                        </figure>
 						<div class="project_body">
 							<h2>Dinsmore Landscape
 								<a href="http://www.dinsmorelandscape.com/"><img src="./img/icon_globe.png"></a>
@@ -522,7 +581,9 @@
 						</div>
 					</li>
 					<li class="project expanded team swift mvc game">
-						<img src="./img/ss_ttt.png">
+                        <figure class="project_leftcolumn">
+                            <img src="./img/ss_ttt.png">
+                        </figure>
 						<div class="project_body">
 							<h2>TicTacToe</h2>
 							<p>Everybody knows TicTacToe!</p>
@@ -541,7 +602,9 @@
 						</div>
 					</li>
 					<li class="project expanded javascript responsive frontend github deployed">
-						<img src="./img/ss_rodwoodmandotcom.png">
+                        <figure class="project_leftcolumn">
+                            <img src="./img/ss_rodwoodmandotcom.png">
+                        </figure>
 						<div class="project_body">
 							<h2>rodwoodman.com
 								<a href="https://github.com/roderickwoodman/rodwoodman_dotcom"><img src="./img/icon_github.png"></a>
@@ -564,7 +627,9 @@
 						</div>
 					</li>
 					<li class="project expanded swift mvc data">
-						<img src="./img/ss_tipster.png">
+                        <figure class="project_leftcolumn">
+                            <img src="./img/ss_tipster.png">
+                        </figure>
 						<div class="project_body">
 							<h2>Tipster</h2>
 							<p>A mobile app that calculates the per-person tip.</p>
@@ -583,7 +648,9 @@
 						</div>
 					</li>
 					<li class="project expanded javascript game github">
-						<img src="./img/ss_pacman.png">
+                        <figure class="project_leftcolumn">
+                            <img src="./img/ss_pacman.png">
+                        </figure>
 						<div class="project_body">
 							<h2>PacMan Clone
 								<a href="https://github.com/roderickwoodman/pacman"><img src="./img/icon_github.png"></a>

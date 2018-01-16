@@ -44,13 +44,6 @@
 		padding: 5px;
 		border-top: 1px solid silver;
 	}
-	#content .project > img {
-		display: inline-block;
-		vertical-align: top;
-		margin: 10px 0;
-		/*border: 3px solid black;*/
-		/*border-radius: 3px;*/
-	}
 	#content .project_body {
 		width: 100%;
 		padding: 5px;
@@ -60,7 +53,26 @@
 		padding-left: 15px;
 		list-style: disc;
 	}
-	#content .project.expanded > img {
+	#content .project figure {
+        display: inline-block;
+    }
+	#content .project .project_leftcolumn a {
+        margin: 4px;
+    }
+	#content .project .project_leftcolumn {
+        vertical-align: top;
+        display: inline-block;
+		margin: 10px 0;
+    }
+	#content .project .project_leftcolumn img {
+		border: 1px solid black;
+		vertical-align: top;
+		width: 100%;
+    }
+	#content .project .project_leftcolumn figcaption {
+        text-align: center;
+    }
+	#content .project.expanded .project_leftcolumn {
 		/*width: 25%;*/
 	    -webkit-transition: width 0.4s, height 0.4s, -webkit-transform 0.4s;
 		transition: width 0.4s, height 0.4s, transform 0.4s;
@@ -70,7 +82,7 @@
 	    -webkit-transition: width 0.4s, height 0.4s, -webkit-transform 0.4s;
 		transition: width 0.4s, height 0.4s, transform 0.4s;
 	}
-	#content .project.collapsed > img {
+	#content .project.collapsed .project_leftcolumn {
 		/*width: 15%;*/
 	    -webkit-transition: width 0.4s, height 0.4s, -webkit-transform 0.4s;
 		transition: width 0.4s, height 0.4s, transform 0.4s;
@@ -107,7 +119,7 @@
 /*************************************************************/
 /************** SMALL SCREEN LAYOUT ADJUSTMENTS **************/
 
-@media (max-width : 750px) {
+@media (max-width : 1000px) {
 	
 #sidebar {
 	display: block;
@@ -120,17 +132,14 @@
 	display: block;
 	width: 100%;
 }
-	#content .project > img {
-		border: none;
-	}
-	#content .project.expanded > img {
-		width: 25%;
+	#content .project.expanded > .project_leftcolumn {
+        display: none;
 	}
 	#content .project.expanded .project_body {
 		width: 70%;
 	}
-	#content .project.collapsed > img {
-		width: 0%;
+	#content .project.collapsed > .project_leftcolumn {
+        display: none;
 	}
 	#content .project.collapsed .project_body {
 		width: 100%;
@@ -140,7 +149,7 @@
 /*************************************************************/
 /************** LARGE SCREEN LAYOUT ADJUSTMENTS **************/
 
-@media (min-width : 751px) {	
+@media (min-width : 1001px) {	
 
 #sidebar {
 	display: inline-block;
@@ -150,17 +159,13 @@
 	display: inline-block;
 	width: 70%;
 }
-	#content .project > img {
-		border: 3px solid black;
-		border-radius: 3px;
-	}
-	#content .project.expanded > img {
+	#content .project.expanded .project_leftcolumn {
 		width: 25%;
 	}
 	#content .project.expanded .project_body {
 		width: 70%;
 	}
-	#content .project.collapsed > img {
+	#content .project.collapsed .project_leftcolumn {
 		width: 15%;
 	}
 	#content .project.collapsed .project_body {
