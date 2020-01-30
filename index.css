@@ -8,3 +8,15 @@
 #summary {
 	width: 100%;
 }
+#resume {
+	max-width: 125px;
+	margin-left: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	border: 1px solid transparent;
+}
+#resume:hover {
+	border: 1px solid silver;
+	cursor: pointer;
+}
