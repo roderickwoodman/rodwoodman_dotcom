@@ -1,3 +1,7 @@
+* {
+	margin: 0;
+	padding: 0;
+}
 #left-side, #right-side {
 	display: inline-block;
 	vertical-align: top;
@@ -19,4 +23,18 @@
 #resume:hover {
 	border: 1px solid silver;
 	cursor: pointer;
+}
+#all-apps {
+	display: flex;
+	align-items: flex-start;
+	flex-wrap: wrap;
+}
+.app {
+	display: inline-block;
+	min-height: 125px;
+	width: 300px;
+	margin: 10px;
+	padding: 10px;
+	border: 1px solid darkgray;
+	box-shadow: 5px 5px lightgray;
 }
