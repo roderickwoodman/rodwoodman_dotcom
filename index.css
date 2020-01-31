@@ -24,6 +24,26 @@
 	border: 1px solid silver;
 	cursor: pointer;
 }
+h3 {
+	position: relative;
+}
+.readme {
+	display: flex;
+	align-items: center;
+	position: absolute;
+	top: 1px;
+	right: 1px;
+	font-weight: 400;
+	font-size: 0.6em;
+	border: 1px solid transparent;
+	border-radius: 5px;
+}
+.readme:hover {
+	border: 1px solid silver;
+}
+.readme > * {
+	margin: 0 2px;
+}
 #all-apps {
 	display: flex;
 	align-items: flex-start;
