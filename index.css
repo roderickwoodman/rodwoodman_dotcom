@@ -2,18 +2,22 @@
 	margin: 0;
 	padding: 0;
 }
+
 html {
   	background-color: #eaeaea;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+
 #wrapper, #summary, #below-summary {
 	display: inline-block;
 	padding: 10px;
 }
+
 h1, p {
 	margin: 10px;
 	line-height: 1.4em;
 }
+
 nav {
 	position: fixed;
 	top: 0;
@@ -28,6 +32,7 @@ nav {
 		font-weight: bold;
 		color: #4cf;
 	}
+	
 footer {
 	width: 85%;
 	margin: 20px auto;
@@ -36,15 +41,18 @@ footer {
 	text-align: center;
 	font-size: 12px;
 }
+
 .horizontal-line {
 	width: 85%;
 	margin: 0 auto;
 	border-bottom: 1px solid silver;
 
 }
+
 .nav-spacer {
 	min-height: 53px;
 }
+
 #summary {
 	width: 70%;
 }
@@ -53,12 +61,15 @@ footer {
 	display: inline-block;
 	vertical-align: top;
 }
+
 #left-side {
 	width: 50%;
 }
+
 #summary {
 	width: 100%;
 }
+
 #resume {
 	max-width: 125px;
 	margin-left: 40px;
@@ -67,13 +78,16 @@ footer {
 	align-items: flex-start;
 	border: 1px solid transparent;
 }
+
 #resume:hover {
 	border: 1px solid silver;
 	cursor: pointer;
 }
+
 h3 {
 	position: relative;
 }
+
 .readme {
 	display: flex;
 	align-items: center;
@@ -85,9 +99,11 @@ h3 {
 	border: 1px solid transparent;
 	border-radius: 5px;
 }
+
 .readme:hover {
 	border: 1px solid silver;
 }
+
 .readme > * {
 	margin: 0 2px;
 }
@@ -111,13 +127,25 @@ h3 {
 	align-items: flex-start;
 	flex-wrap: wrap;
 }
+
 .app {
-	min-height: 125px;
+	display: flex;
+	flex-direction: column;
 	width: 350px;
 	margin: 10px;
 	padding: 10px;
 	border: 1px solid darkgray;
 	box-shadow: 5px 5px lightgray;
+}
+
+#personal-apps .app {
+	justify-content: flex-start;
+	height: 125px;
+}
+
+#work-apps .app {
+	justify-content: space-between;
+	height: 225px;
 }
 
 .screenshot {
