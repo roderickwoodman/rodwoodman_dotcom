@@ -10,12 +10,9 @@ html {
 	display: inline-block;
 	padding: 10px;
 }
-h1, h3, p, .hideme_link, .showme_link {
+h1, p {
 	margin: 10px;
 	line-height: 1.4em;
-}
-ul {
-	list-style: none;
 }
 nav {
 	position: fixed;
@@ -94,7 +91,23 @@ h3 {
 .readme > * {
 	margin: 0 2px;
 }
-#all-apps {
+
+.app-bullets {
+	position: absolute;
+	top: 1px;
+	right: 1px;
+	list-style: none;
+	font-weight: 400;
+	font-size: 0.6em;
+}
+
+.bullets {
+	margin: 0;
+	padding: 0;
+}
+
+
+.all-apps {
 	display: flex;
 	align-items: flex-start;
 	flex-wrap: wrap;
