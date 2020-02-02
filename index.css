@@ -156,5 +156,8 @@ footer {
 	margin: 0 2px;
 	height: 100px;
 	width: 100px;
-	border: 1px solid silver;
+	border: 2px solid silver;
+}
+.screenshot:hover {
+	border: 2px solid red;
 }
