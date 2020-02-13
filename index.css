@@ -84,12 +84,12 @@ footer {
 	cursor: pointer;
 }
 
-.app-header {
+.card-header {
 	display: flex;
 	justify-content: space-between;
 }
 
-.app-title {
+.card-title {
 	font-size: 1.4em;
 	font-weight: 800;
 }
@@ -109,7 +109,7 @@ footer {
 	margin: 0 2px;
 }
 
-.app-bullets {
+.card-bullets {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -117,17 +117,17 @@ footer {
 	font-size: 0.9em;
 }
 
-.app-bullets a {
+.card-bullets a {
 	text-decoration: none;
 }
 
-.all-apps {
+.all-cards {
 	display: flex;
 	align-items: flex-start;
 	flex-wrap: wrap;
 }
 
-.app {
+.card {
 	display: flex;
 	flex-direction: column;
 	width: 350px;
@@ -137,14 +137,41 @@ footer {
 	box-shadow: 5px 5px lightgray;
 }
 
-#personal-apps .app {
+#main-content > section {
+	margin: 35px 0;
+}
+
+#favorite-things .card {
+	flex-direction: row;
+	align-items: flex-start;
+}
+
+#favorite-things .card-body {
+	display: flex;
+	flex-direction: column;
+	padding: 0 10px;
+}
+
+#personal-apps .card {
 	justify-content: flex-start;
 	height: 125px;
 }
 
-#work-apps .app {
+#work-apps .card {
 	justify-content: space-between;
 	height: 225px;
+}
+
+#favorite-things .card {
+	height: 125px;
+}
+
+#favorite-things .card-image {
+	max-width: 125px;
+}
+
+#favorite-things img {
+	max-height: 125px;
 }
 
 .app-screenshots {
