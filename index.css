@@ -188,3 +188,20 @@ footer {
 .screenshot:hover {
 	border: 2px solid red;
 }
+
+@media only screen and (max-width: 1200px) {
+
+	.all-cards {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: center;
+		flex-wrap: wrap;
+	}
+
+	.card {
+		width: 100%;
+		max-width: 550px;
+	}
+
+}
